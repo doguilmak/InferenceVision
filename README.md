@@ -68,26 +68,26 @@ The proposed project has several scientific implications and contributions:
 
 ### Install and Use the Library
 
-1- Install the Library Run the following command in a code cell to install `inference_vision` from GitHub: 
+**1- Install the Library Run the following command in a code cell to install `inference_vision` from GitHub:**
 
     !git https://github.com/username/inference_vision.git
 
 <br>
 
-2- Optionally, you can download rasterio and ultralytics.
+**2- Optionally, you can download rasterio and ultralytics.**
 
     !pip install ultralytics -q
     !pip install rasterio -q
 
 <br>
 
-3- Once the installation is complete, import the `InferenceVision` class from the library. 
+**3- Once the installation is complete, import the `InferenceVision` class from the library.** 
 
     from inference_vision import InferenceVision
 
 <br>
 
-4- Here's a simple example demonstrating how to use `InferenceVision`:
+**4- Here's a simple example demonstrating how to use `InferenceVision`:**
 
     inference = InferenceVision(tif_path="path/to/image.tif",
 	     model_path="path/to/model.pt", 
