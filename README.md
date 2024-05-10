@@ -106,9 +106,9 @@ $$ lon = lon_{top \space left} + (lon_{bottom \space right} - lon_{top \space le
 
 ### **Debugging and Future Improvements**
 
-<br>
-
 **Debugging:** In case of any errors or unexpected behavior during image processing, carefully review the input data, model configuration, and method calls. Use debugging tools such as print statements, logging, or interactive debugging to identify and resolve issues.
+
+<br>
 
 **Future Improvements:** Consider incorporating additional features or enhancements to further optimize the performance and usability of the `InferenceVision` class. Potential improvements may include support for alternative object detection models, integration with other geospatial libraries, or optimization of computational efficiency.
 
