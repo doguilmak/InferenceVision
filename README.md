@@ -77,7 +77,7 @@ The proposed project has several scientific implications and contributions:
 
 **1- Install the Library Run the following command in a code cell to install `inference_vision` from GitHub:**
 
-    !git https://github.com/username/inference_vision.git
+    !git https://github.com/doguilmak/InferenceVision.git
 
 
 
