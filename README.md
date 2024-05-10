@@ -116,7 +116,3 @@ This calculation elucidates the process of deriving geographic coordinates from 
 <br>
 
 **Future Improvements:** Consider incorporating additional features or enhancements to further optimize the performance and usability of the `InferenceVision` class. Potential improvements may include support for alternative object detection models, integration with other geospatial libraries, or optimization of computational efficiency.
-
-<br>
-
-*Library will be available as a package on PyPI (Python Package Index).*
