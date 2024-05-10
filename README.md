@@ -104,7 +104,7 @@ $$ lon = lon_{top \space left} + (lon_{bottom \space right} - lon_{top \space le
 
 <br>
 
-## **Debugging and Future Improvements**
+### **Debugging and Future Improvements**
 
 **Debugging:** In case of any errors or unexpected behavior during image processing, carefully review the input data, model configuration, and method calls. Use debugging tools such as print statements, logging, or interactive debugging to identify and resolve issues.
 
