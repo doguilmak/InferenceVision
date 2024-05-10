@@ -43,6 +43,7 @@ $$ \text{Polygon coordinates} = {(lat_{top \space left}, lon_{top \space left}),
 <br>
 
 $$ lat = lat_{top \space left} + (lat_{bottom \space right} - lat_{top \space left}) \cdot y_{norm} $$
+
 $$ lon = lon_{top \space left} + (lon_{bottom \space right} - lon_{top \space left}) \cdot x_{norm} $$
 
    
