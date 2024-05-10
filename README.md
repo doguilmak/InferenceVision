@@ -52,7 +52,7 @@ $$ lon = lon_{top \space left} + (lon_{bottom \space right} - lon_{top \space le
    - $lat$ represents latitude.
    - $lon$ represents longitude.
    - $y_{norm}$ and $x_{norm}$ are the normalized center coordinates.
-   - $lat_{top_{left}}, lon_{top\_left}, lat_{bottom\_right},$ and $lon_{bottom\_right}$ are the latitude and longitude of the top-left and bottom-right corners of the polygon, respectively.
+   - $lat_{top \space left}, lon_{top \space left}, lat_{bottom \space right},$ and $lon_{bottom \space right}$ are the latitude and longitude of the top-left and bottom-right corners of the polygon, respectively.
 
 <br>
 
