@@ -20,7 +20,7 @@ Our project seeks to address the aforementioned challenges by developing an auto
 
 In this section, we outline the methodology employed for deriving geographic coordinates from input data within the InferenceVision framework. This methodological approach combines advanced techniques in satellite image analysis, object detection, and geographic coordinate calculation to enable precise geospatial analysis and visualization. Let's delve into the steps involved:
 
-<img  src="https://github.com/doguilmak/InferenceVision/blob/main/assets/InferenceVision.png" alt="github.com/doguilmak/InferenceVision"/>
+<img  src="https://github.com/doguilmak/InferenceVision/blob/main/assets/InferenceVision.png" width=1000 alt="github.com/doguilmak/InferenceVision"/>
 
 **Given a set of inputs, the calculation unfolds as follows:**
 
