@@ -20,6 +20,17 @@ Our project seeks to address the aforementioned challenges by developing an auto
 
 <br>
 
+## **Scientific Significance**
+The proposed project has several scientific implications and contributions:
+
+- **Automation and Efficiency:** By automating the process of object detection and geographic coordinate calculation, our system significantly reduces the time and effort required for geospatial analysis, thereby enhancing efficiency and scalability.
+
+- **Accuracy and Precision:** Through the integration of advanced algorithms, our system ensures high accuracy and precision in object detection and geographic coordinate calculation, leading to reliable and trustworthy results.
+
+- **Versatility and Adaptability:** The developed system is versatile and adaptable to various applications, including environmental monitoring, urban planning, agriculture, and disaster response. It provides researchers and practitioners with a powerful tool for analyzing geospatial data in diverse contexts.
+
+<br>
+
 ## **Methodology**
 
 In this section, we outline the methodology employed for deriving geographic coordinates from input data within the InferenceVision framework. This methodological approach combines advanced techniques in satellite image analysis, object detection, and geographic coordinate calculation to enable precise geospatial analysis and visualization. Let's delve into the steps involved:
@@ -60,17 +71,6 @@ $$ lon = lon_{top \space left} + (lon_{bottom \space right} - lon_{top \space le
 
 <br>
 
-## **Scientific Significance**
-The proposed project has several scientific implications and contributions:
-
-- **Automation and Efficiency:** By automating the process of object detection and geographic coordinate calculation, our system significantly reduces the time and effort required for geospatial analysis, thereby enhancing efficiency and scalability.
-
-- **Accuracy and Precision:** Through the integration of advanced algorithms, our system ensures high accuracy and precision in object detection and geographic coordinate calculation, leading to reliable and trustworthy results.
-
-- **Versatility and Adaptability:** The developed system is versatile and adaptable to various applications, including environmental monitoring, urban planning, agriculture, and disaster response. It provides researchers and practitioners with a powerful tool for analyzing geospatial data in diverse contexts.
-
-<br>
-
 ## **Install and Use the Library**
 
 <br>
@@ -78,7 +78,6 @@ The proposed project has several scientific implications and contributions:
 **1- Install the Library Run the following command in a code cell to install `inference_vision` from GitHub:**
 
     !git https://github.com/doguilmak/InferenceVision.git
-
 
 
 **2- Optionally, you can download rasterio and ultralytics.**
