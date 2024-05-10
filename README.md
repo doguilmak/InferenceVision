@@ -49,6 +49,8 @@ $$ lon = lon_{top \space left} + (lon_{bottom \space right} - lon_{top \space le
    - $y_{norm}$ and $x_{norm}$ are the normalized center coordinates.
    - $lat_{top\_left}, lon_{top\_left}, lat_{bottom\_right},$ and $lon_{bottom\_right}$ are the latitude and longitude of the top-left and bottom-right corners of the polygon, respectively.
 
+<br>
+
 ## **Scientific Significance**
 The proposed project has several scientific implications and contributions:
 
