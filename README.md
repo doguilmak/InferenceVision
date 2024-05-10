@@ -94,6 +94,8 @@ The proposed project has several scientific implications and contributions:
     
     inference.process_image(build_csv=True, csv_filename="output.csv")
 
+<br>
+
 **In addition, you can see how to use the `inference_vision` library step by step in an [IPython Notebook](https://github.com/doguilmak/InferenceVision/blob/main/usage/InferenceVision_Usage.ipynb) environment.**
 
 <br>
