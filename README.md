@@ -28,8 +28,6 @@ In this section, we outline the methodology employed for deriving geographic coo
 
 **Given a set of inputs, the calculation unfolds as follows:**
 
-**NOTE: The input image must have a coordinate reference system (CRS) set to ensure accurate geographic coordinate calculation.**
-
 <br>
 
 **1- Extract Polygon Coordinates from Very High-Resolution (VHR) Satellite Image:** The corner coordinates of the polygon delineate the geographical extent of interest, encompassing the top-left and bottom-right corners, serving as pivotal reference points for computing the geographic coordinates of normalized centers.
@@ -55,6 +53,8 @@ $$ lon = lon_{top \space left} + (lon_{bottom \space right} - lon_{top \space le
    - $lon$ represents longitude.
    - $y_{norm}$ and $x_{norm}$ are the normalized center coordinates.
    - $lat_{top \space left}, lon_{top \space left}, lat_{bottom \space right},$ and $lon_{bottom \space right}$ are the latitude and longitude of the top-left and bottom-right corners of the polygon, respectively.
+
+**NOTE: The input image must have a coordinate reference system (CRS) set to ensure accurate geographic coordinate calculation.**
 
 <br>
 
