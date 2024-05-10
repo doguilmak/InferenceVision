@@ -94,7 +94,7 @@ The proposed project has several scientific implications and contributions:
 
 <br>
 
-**In addition, you can see how to use the `inference_vision` library step by step in an [IPython Notebook](github.com) environment.**
+**In addition, you can see how to use the `inference_vision` library step by step in an [IPython Notebook](https://github.com/doguilmak/InferenceVision/blob/main/usage/InferenceVision_Usage.ipynb) environment.**
 
 <br>
 
