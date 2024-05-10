@@ -68,24 +68,22 @@ The proposed project has several scientific implications and contributions:
 
 ### Install and Use the Library
 
+<br>
+
 **1- Install the Library Run the following command in a code cell to install `inference_vision` from GitHub:**
 
     !git https://github.com/username/inference_vision.git
 
-<br>
+
 
 **2- Optionally, you can download rasterio and ultralytics.**
 
     !pip install ultralytics -q
     !pip install rasterio -q
 
-<br>
-
 **3- Once the installation is complete, import the `InferenceVision` class from the library.** 
 
     from inference_vision import InferenceVision
-
-<br>
 
 **4- Here's a simple example demonstrating how to use `InferenceVision`:**
 
@@ -95,8 +93,6 @@ The proposed project has several scientific implications and contributions:
 	     image_height=height) # Process image 
     
     inference.process_image(build_csv=True, csv_filename="output.csv")
-
-<br>
 
 **In addition, you can see how to use the `inference_vision` library step by step in an [IPython Notebook](https://github.com/doguilmak/InferenceVision/blob/main/usage/InferenceVision_Usage.ipynb) environment.**
 
