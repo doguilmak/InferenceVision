@@ -34,7 +34,7 @@ $$ \text{Polygon coordinates} = {(lat_{top \space left}, lon_{top \space left}),
 
 <br>
 
-**2- Calculate Normalized Centers:** Retrieve the pixel coordinates of the bounding box, then calculate its center. Next, proceed to normalize each center of the bounding box using image size. Representing the relative positions of objects within the defined polygon, normalized center coordinates are structured as a matrix with rows $(y_{norm}, x_{norm})$ for $i = 1, 2, \ldots, \text{num_centers}$. The function calculates geographic coordinates using the following equations. For each $i$ from $1$ to $\text{num_centers}$ in the image:
+**2- Calculate Normalized Centers:** Retrieve the pixel coordinates of the bounding box, then calculate its center. Next, proceed to normalize each center of the bounding box using image size. Representing the relative positions of objects within the defined polygon, normalized center coordinates are structured as a matrix with rows $ (y_{norm}, x_{norm}) $ for $ i = 1, 2, \ldots, \text{num_centers} $. The function calculates geographic coordinates using the following equations. For each $i$ from $ 1 $ to $ \text{num_centers} $ in the image:
 
 <br>
 
@@ -57,9 +57,6 @@ The proposed project has several scientific implications and contributions:
 - **Accuracy and Precision:** Through the integration of advanced algorithms, our system ensures high accuracy and precision in object detection and geographic coordinate calculation, leading to reliable and trustworthy results.
 
 - **Versatility and Adaptability:** The developed system is versatile and adaptable to various applications, including environmental monitoring, urban planning, agriculture, and disaster response. It provides researchers and practitioners with a powerful tool for analyzing geospatial data in diverse contexts.
-
-## **Conclusion**
-This calculation elucidates the process of deriving geographic coordinates from given inputs, a pivotal step within `InferenceVision` framework. It facilitates the transformation of normalized center coordinates into precise geographic coordinates, fostering accurate geospatial analysis and visualization. Geographic coordinates, namely latitude and longitude, are indispensable for pinpointing specific locations on Earth's surface. This process outlined here harmonizes normalized center coordinates, relative values within a bounding area, into a set of coordinates mappable onto a geographical map for comprehensive analysis. In conclusion, our scientific project aims to advance the field of geospatial analysis by leveraging cutting-edge technologies and methodologies. By combining object detection with geographic coordinate calculation, we strive to provide researchers and practitioners with an efficient, accurate, and versatile solution for addressing complex geospatial challenges.
 
 <br>
 
@@ -96,3 +93,8 @@ This calculation elucidates the process of deriving geographic coordinates from 
 <br>
 
 **In addition, you can see how to use the `inference_vision` library step by step in an [IPython Notebook](github.com) environment.**
+
+<br>
+
+## **Conclusion**
+This calculation elucidates the process of deriving geographic coordinates from given inputs, a pivotal step within `InferenceVision` framework. It facilitates the transformation of normalized center coordinates into precise geographic coordinates, fostering accurate geospatial analysis and visualization. Geographic coordinates, namely latitude and longitude, are indispensable for pinpointing specific locations on Earth's surface. This process outlined here harmonizes normalized center coordinates, relative values within a bounding area, into a set of coordinates mappable onto a geographical map for comprehensive analysis. In conclusion, our scientific project aims to advance the field of geospatial analysis by leveraging cutting-edge technologies and methodologies. By combining object detection with geographic coordinate calculation, we strive to provide researchers and practitioners with an efficient, accurate, and versatile solution for addressing complex geospatial challenges.
