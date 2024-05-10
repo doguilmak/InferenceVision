@@ -34,7 +34,7 @@ $$ \text{Polygon coordinates} = {(lat_{top \space left}, lon_{top \space left}),
 
 <br>
 
-**2- Calculate Normalized Centers:** Retrieve the pixel coordinates of the bounding box, then calculate its center. Next, proceed to normalize each center of the bounding box using image size. Representing the relative positions of objects within the defined polygon, normalized center coordinates are structured as a matrix with rows $(y_{norm}, x_{norm})$ for $i = 1, 2, \ldots, num_centers$. The function calculates geographic coordinates using the following equations. For each $i$ from $1$ to $num_centers$ in the image:
+**2- Calculate Normalized Centers:** Retrieve the pixel coordinates of the bounding box, then calculate its center. Next, proceed to normalize each center of the bounding box using image size. Representing the relative positions of objects within the defined polygon, normalized center coordinates are structured as a matrix with rows $(y_{norm}, x_{norm})$ for $i = 1, 2, \ldots, num_{centers}$. The function calculates geographic coordinates using the following equations. For each $i$ from $1$ to $num_{centers}$ in the image:
 
 <br>
 
