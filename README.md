@@ -106,3 +106,17 @@ $$ lon = lon_{top \space left} + (lon_{bottom \space right} - lon_{top \space le
 
 ## **Conclusion**
 This calculation elucidates the process of deriving geographic coordinates from given inputs, a pivotal step within `InferenceVision` framework. It facilitates the transformation of normalized center coordinates into precise geographic coordinates, fostering accurate geospatial analysis and visualization. Geographic coordinates, namely latitude and longitude, are indispensable for pinpointing specific locations on Earth's surface. This process outlined here harmonizes normalized center coordinates, relative values within a bounding area, into a set of coordinates mappable onto a geographical map for comprehensive analysis. In conclusion, our scientific project aims to advance the field of geospatial analysis by leveraging cutting-edge technologies and methodologies. By combining object detection with geographic coordinate calculation, we strive to provide researchers and practitioners with an efficient, accurate, and versatile solution for addressing complex geospatial challenges.
+
+<br>
+
+## **Debugging and Future Improvements**
+
+**Debugging:** In case of any errors or unexpected behavior during image processing, carefully review the input data, model configuration, and method calls. Use debugging tools such as print statements, logging, or interactive debugging to identify and resolve issues.
+
+<br>
+
+**Future Improvements:** Consider incorporating additional features or enhancements to further optimize the performance and usability of the `InferenceVision` class. Potential improvements may include support for alternative object detection models, integration with other geospatial libraries, or optimization of computational efficiency.
+
+<br>
+
+*Library will be available as a package on PyPI (Python Package Index).*
