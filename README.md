@@ -54,6 +54,8 @@ $$ lon = lon_{top \space left} + (lon_{bottom \space right} - lon_{top \space le
    - $y_{norm}$ and $x_{norm}$ are the normalized center coordinates.
    - $lat_{top \space left}, lon_{top \space left}, lat_{bottom \space right},$ and $lon_{bottom \space right}$ are the latitude and longitude of the top-left and bottom-right corners of the polygon, respectively.
 
+<br>
+
 **NOTE: The input image must have a coordinate reference system (CRS) set to ensure accurate geographic coordinate calculation.**
 
 <br>
