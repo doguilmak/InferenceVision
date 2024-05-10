@@ -12,13 +12,13 @@ Traditional methods of geospatial analysis often rely on manual identification a
 ## **Project Objective**
 Our project seeks to address the aforementioned challenges by developing an automated system that combines object detection algorithms with geographic coordinate calculations. By integrating these components, we aim to achieve the following objectives:
 
-<br>
-
 1. **Object Detection:** Utilize state-of-the-art object detection algorithms, such as YOLO (You Only Look Once), to automatically identify and localize objects within satellite or aerial imagery.
 
 2. **Geographic Coordinate Calculation:** Develop algorithms to calculate the geographic coordinates (latitude and longitude) of detected objects relative to a given bounding polygon. This involves converting normalized center coordinates of objects within the bounding polygon to precise geographic coordinates.
 
 3. **Integration and Visualization:** Integrate object detection results with calculated geographic coordinates to create a comprehensive geospatial dataset. Visualize the detected objects and their geographic locations on maps for further analysis and interpretation.
+
+<br>
 
 ## **Methodology**
 
