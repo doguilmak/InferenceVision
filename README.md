@@ -53,6 +53,8 @@ $$ \text{Polygon coordinates} = {(lat_{top \space left}, lon_{top \space left}),
 
 <br>
 
+<br>
+
 **3- Calculate Geographic Coordinates:** The function calculates geographic coordinates using the following equations. For each $i$ from $1$ to $number \space of \space centers$ in the image:
 
 <br>
