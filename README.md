@@ -41,7 +41,7 @@ In this section, we outline the methodology employed for deriving geographic coo
 
 <br>
 
-**1- Transform VHR Satellite Image Coordinates to WGS 84 (EPSG:4326) and Extract Polygon Coordinates:** The target CRS is WGS 84, representing a geographic coordinate system. Converting to this CRS standardizes the data. We use Nearest Neighbor interpolation, which can result in a blocky appearance. Transformed coordinates are precise to 6 decimal places. First, we transform image coordinates to WGS 84. Then, we extract polygon coordinates, defining the geographical extent with top-left and bottom-right corners as reference points for computing the geographic coordinates of normalized centers.
+**1- Transform VHR Satellite Image Coordinates to WGS 84 (EPSG:4326) and Extract Polygon Coordinates:** The target Coordinate Reference System (CRS) is WGS 84, representing a geographic coordinate system. Converting to this CRS standardizes the data. We use Nearest Neighbor interpolation, which can result in a blocky appearance. Transformed coordinates are precise to 6 decimal places. First, we transform image coordinates to WGS 84. Then, we extract polygon coordinates, defining the geographical extent with top-left and bottom-right corners as reference points for computing the geographic coordinates of normalized centers.
 
 <br>
 
@@ -73,7 +73,7 @@ $$ lon = lon_{top \space left} + (lon_{bottom \space right} - lon_{top \space le
 
 <br>
 
-**NOTE: The input image must have a coordinate reference system (CRS) set to ensure accurate geographic coordinate calculation.**
+**NOTE: The input image must have a CRS set to ensure accurate geographic coordinate calculation.**
 
 <br>
 
