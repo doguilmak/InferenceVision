@@ -41,7 +41,7 @@ In this section, we outline the methodology employed for deriving geographic coo
 
 <br>
 
-**1- Extract Polygon Coordinates from Very High-Resolution (VHR) Satellite Image:** The corner coordinates of the polygon delineate the geographical extent of interest, encompassing the top-left and bottom-right corners, serving as pivotal reference points for computing the geographic coordinates of normalized centers.
+**1- Transform VHR Satellite Image Coordinates to WGS 84 (EPSG:4326) and Extract Polygon Coordinates:** The target CRS is WGS 84, representing a geographic coordinate system. Converting to this CRS standardizes the data. We use Nearest Neighbor interpolation, which can result in a blocky appearance. Transformed coordinates are precise to 6 decimal places. First, we transform image coordinates to WGS 84. Then, we extract polygon coordinates, defining the geographical extent with top-left and bottom-right corners as reference points for computing the geographic coordinates of normalized centers.
 
 <br>
 
