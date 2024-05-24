@@ -1,3 +1,4 @@
+
 <img  src="https://github.com/doguilmak/InferenceVision/blob/main/assets/Inference%20Vision%20Cover.png" alt="github.com/doguilmak/InferenceVision"/>
 
 In contemporary scientific research and applications, there is an increasing demand for accurate geospatial analysis to address various real-world challenges, ranging from environmental monitoring to urban planning and disaster response. The ability to precisely locate and identify objects within geographic areas plays a pivotal role in such endeavors. In this scientific project, we aim to enhance geospatial analysis by integrating object detection techniques with geographic coordinate calculations.
@@ -86,10 +87,9 @@ $$ lon = lon_{top \space left} + (lon_{bottom \space right} - lon_{top \space le
     !git https://github.com/doguilmak/InferenceVision.git
 
 
-**2- Optionally, you can download rasterio and ultralytics.**
+**2- Install requirements using `requirements.txt` file.**
 
-    !pip install ultralytics -q
-    !pip install rasterio -q
+    !pip install -r requirements.txt -q
 
 **3- Once the installation is complete, import the `InferenceVision` class from the library.** 
 
