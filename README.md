@@ -84,13 +84,13 @@ $$ lon = lon_{top \space left} + (lon_{bottom \space right} - lon_{top \space le
 
 **1- Install the Library Run the following command in a code cell to install `inference_vision` from GitHub:**
 
-    !git clone https://github.com/doguilmak/InferenceVision.git
+    git clone https://github.com/doguilmak/InferenceVision.git
 
 
 **2- Install requirements using `requirements.txt` file.**
 	
 	cd InferenceVision
-    !pip install -r requirements.txt -q
+    pip install -r requirements.txt -q
 
 **3- Once the installation is complete, import the `InferenceVision` class from the library.** 
 
