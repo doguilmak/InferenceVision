@@ -8,13 +8,14 @@ In contemporary scientific research and applications, there is an increasing dem
 Stay tuned for regular updates on our progress and new developments:
 
 <details>
-    <summary>Latest updates...</summary>
 
-    <b>June 2024</b>
-  
-    <ul>
-        <li>Launched InferenceVision version 1.0!</li>
-    </ul>
+<summary>Latest updates...</summary>
+
+<b>June 2024</b>
+<ul>
+	<li>Launched InferenceVision version 1.0!</li>
+</ul>
+
 </details>
 
 <br>
