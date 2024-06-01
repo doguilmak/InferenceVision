@@ -14,9 +14,9 @@ Stay tuned for regular updates on our progress and new developments:
 <br>
 
 <b>June 2024</b>
-<ul>
+<ol>
 	<li>Launched InferenceVision version 1.0!</li>
-</ul>
+</ol>
 
 </details>
 
