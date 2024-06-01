@@ -1,7 +1,7 @@
 
 <img  src="https://github.com/doguilmak/InferenceVision/blob/main/assets/Inference%20Vision%20Cover.png" alt="github.com/doguilmak/InferenceVision"/>
 
-In contemporary scientific research and applications, there is an increasing demand for accurate geospatial analysis to address various real-world challenges, ranging from environmental monitoring to urban planning and disaster response. The ability to precisely locate and identify objects within geographic areas plays a pivotal role in such endeavors. In this scientific project, we aim to enhance geospatial analysis by integrating object detection techniques with geographic coordinate calculations. Please check our [website](https://doguilmak.github.io/InferenceVision/) for the library. You'll find a wealth of information and materials available to enrich your knowledge and learning experience. Stay tuned for regular updates on our progress and new developments!
+In contemporary scientific research and applications, there is an increasing demand for accurate geospatial analysis to address various real-world challenges, ranging from environmental monitoring to urban planning and disaster response. The ability to precisely locate and identify objects within geographic areas plays a pivotal role in such endeavors. In this scientific project, we aim to enhance geospatial analysis by integrating object detection techniques with geographic coordinate calculations. Please check our [website](https://doguilmak.github.io/InferenceVision/) for the library. You'll find a wealth of information and materials available to enrich your knowledge and learning experience.
 
 <br>
 
