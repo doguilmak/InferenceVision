@@ -1,7 +1,21 @@
 
 <img  src="https://github.com/doguilmak/InferenceVision/blob/main/assets/Inference%20Vision%20Cover.png" alt="github.com/doguilmak/InferenceVision"/>
 
-In contemporary scientific research and applications, there is an increasing demand for accurate geospatial analysis to address various real-world challenges, ranging from environmental monitoring to urban planning and disaster response. The ability to precisely locate and identify objects within geographic areas plays a pivotal role in such endeavors. In this scientific project, we aim to enhance geospatial analysis by integrating object detection techniques with geographic coordinate calculations.
+In contemporary scientific research and applications, there is an increasing demand for accurate geospatial analysis to address various real-world challenges, ranging from environmental monitoring to urban planning and disaster response. The ability to precisely locate and identify objects within geographic areas plays a pivotal role in such endeavors. In this scientific project, we aim to enhance geospatial analysis by integrating object detection techniques with geographic coordinate calculations. Please check our [website](https://doguilmak.github.io/InferenceVision/) for the library. You'll find a wealth of information and materials available to enrich your knowledge and learning experience. Stay tuned for regular updates on our progress and new developments!
+
+<br>
+
+Stay tuned for regular updates on our progress and new developments:
+
+<details>
+    <summary>Latest updates...</summary>
+
+    <b>June 2024</b>
+  
+    <ul>
+        <li>Launched InferenceVision version 1.0!</li>
+    </ul>
+</details>
 
 <br>
 
@@ -108,8 +122,6 @@ $$ lon = lon_{top \space left} + (lon_{bottom \space right} - lon_{top \space le
 <br>
 
 **In addition, you can see how to use the `inference_vision` library step by step in an [IPython Notebook](https://github.com/doguilmak/InferenceVision/blob/main/usage/InferenceVision_Usage.ipynb) environment.**
-
-**Please check our [website](https://doguilmak.github.io/InferenceVision/) for the library. You'll find a wealth of information and materials available to enrich your knowledge and learning experience.**
 
 <br>
 
