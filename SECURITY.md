@@ -2,7 +2,7 @@
 
 ## Reporting a Vulnerability
 
-Thank you for your interest in the security of our project. If you believe you have discovered a security vulnerability in the Drone Detection with YOLOv8x, we encourage you to report it to us.
+Thank you for your interest in the security of our project. If you believe you have discovered a security vulnerability in the InferenceVision, we encourage you to report it to us.
 
 ### Reporting Process
 
