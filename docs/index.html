@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -12,6 +13,7 @@
         html {
             scroll-behavior: smooth;
         }
+
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -22,38 +24,46 @@
             color: #333;
             scroll-behavior: smooth;
         }
-        header, footer {
+
+        header,
+        footer {
             background-color: #333;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
+
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
         }
+
         header h1 {
             margin: 0;
             font-size: 24px;
         }
+
         nav a {
             color: #fff;
             text-decoration: none;
             margin-left: 20px;
             font-weight: 500;
         }
+
         nav a:hover {
             color: #e29d84;
             text-decoration: none;
         }
+
         .hero {
             background: linear-gradient(135deg, #e29d84 0%, #c28672 100%);
             color: #fff;
             padding: 10px 20px;
             text-align: center;
         }
+
         .container {
             max-width: 800px;
             margin: 20px auto;
@@ -62,18 +72,21 @@
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
+
         img {
             max-width: 100%;
             height: auto;
             display: block;
             margin: 20px auto;
         }
+
         h2 {
             margin-top: 40px;
             font-size: 22px;
             font-weight: bold;
             position: relative;
         }
+
         h2::before {
             content: '';
             position: absolute;
@@ -83,81 +96,136 @@
             height: 3px;
             background-color: #e29d84;
         }
-        p, li {
+
+        p,
+        li {
             line-height: 1.6;
             font-size: 16px;
             margin-bottom: 20px;
         }
+
         ul {
             margin-bottom: 20px;
             padding-left: 20px;
         }
+
         a {
-            color: #007bff;
             text-decoration: none;
             font-weight: 500;
         }
+
         a:hover {
             text-decoration: none;
         }
+
         .footer-links {
             display: flex;
             justify-content: center;
             align-items: center;
         }
+
         .footer-links a {
             color: #fff;
             margin-left: 10px;
             display: flex;
             align-items: center;
         }
+
         .footer-links i {
             margin-right: 5px;
         }
+
         .icon {
             color: #e29d84;
             margin-right: 10px;
         }
+
         button {
             background-color: #e29d84;
             color: #fff;
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
-            font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        button:hover {
-            background-color: #0056b3;
+
+        .dropbtn {
+            background-color: #fff;
+            color: #333;
+            padding: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
         }
+
+        .dropbtn:hover,
+        .dropbtn:focus {
+            background-color: #e29d84;
+        }
+
+        .dropdown {
+            position: relative;
+            display: none;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #444;
+            min-width: 200px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+            right: 0;
+        }
+
+        .dropdown-content a {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #555;
+        }
+
+        .show {
+            display: block;
+        }
+
+        @media (max-width: 988px) {
+            nav {
+                display: none;
+            }
+
+            .dropdown {
+                display: inline-block;
+            }
+        }
+
         @media (max-width: 550px) {
             code {
                 font-size: 10px;
             }
         }
+
         @media (max-width: 430px) {
             code {
-                font-size: 8px; 
+                font-size: 8px;
             }
         }
+
         @media (max-width: 360px) {
             code {
                 font-size: 4px;
             }
         }
-        @media (max-width: 900px) {
-            header > nav > a {
-                font-size: 11px;
-            }
-        }
-        @media (max-width: 430px) {
-            header > nav > a {
-                font-size: 8px;
-            }
-        }
     </style>
 </head>
+
 <body>
     <header>
         <h1>InferenceVision</h1>
@@ -168,45 +236,88 @@
             <a href="#methodology">Methodology</a>
             <a href="#install">Install</a>
         </nav>
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#problem">Problem Statement</a>
+                <a href="#objective">Project Objective</a>
+                <a href="#significance">Scientific Significance</a>
+                <a href="#methodology">Methodology</a>
+                <a href="#install">Install</a>
+            </div>
+        </div>
     </header>
     <section class="hero"></section>
     <div class="container">
-        <img src="https://github.com/doguilmak/InferenceVision/raw/main/assets/Inference%20Vision%20Cover.png" alt="InferenceVision Cover Image">
-        <p>In contemporary scientific research and applications, there is an increasing demand for accurate geospatial analysis to address various real-world challenges, ranging from environmental monitoring to urban planning and disaster response. The ability to precisely locate and identify objects within geographic areas plays a pivotal role in such endeavors. In this scientific project, we aim to enhance geospatial analysis by integrating object detection techniques with geographic coordinate calculations.</p>
-        
+        <img src="https://github.com/doguilmak/InferenceVision/raw/main/assets/Inference%20Vision%20Cover.png"
+            alt="InferenceVision Cover Image">
+        <p>In contemporary scientific research and applications, there is an increasing demand for accurate geospatial
+            analysis to address various real-world challenges, ranging from environmental monitoring to urban planning
+            and disaster response. The ability to precisely locate and identify objects within geographic areas plays a
+            pivotal role in such endeavors. In this scientific project, we aim to enhance geospatial analysis by
+            integrating object detection techniques with geographic coordinate calculations.</p>
+
         <hr style="border: none; height: 1px; background-color: #cfcfcf;">
 
         <h2 id="problem"><i class="fas fa-exclamation-circle icon"></i>Problem Statement</h2>
-        <p>Traditional methods of geospatial analysis often rely on manual identification and mapping of objects within geographical regions. However, these methods are time-consuming, labor-intensive, and prone to errors. Moreover, they may lack the scalability required for large-scale analyses. Therefore, there is a need for automated solutions that can accurately detect and locate objects within geographic areas, enabling efficient and scalable geospatial analysis.</p>
-        
+        <p>Traditional methods of geospatial analysis often rely on manual identification and mapping of objects within
+            geographical regions. However, these methods are time-consuming, labor-intensive, and prone to errors.
+            Moreover, they may lack the scalability required for large-scale analyses. Therefore, there is a need for
+            automated solutions that can accurately detect and locate objects within geographic areas, enabling
+            efficient and scalable geospatial analysis.</p>
+
         <h2 id="objective"><i class="fas fa-bullseye icon"></i>Project Objective</h2>
-        <p>Our project seeks to address the aforementioned challenges by developing an automated system that combines object detection algorithms with geographic coordinate calculations. By integrating these components, we aim to achieve the following objectives:</p>
+        <p>Our project seeks to address the aforementioned challenges by developing an automated system that combines
+            object detection algorithms with geographic coordinate calculations. By integrating these components, we aim
+            to achieve the following objectives:</p>
         <ul>
-            <li><strong>Object Detection:</strong> Utilize state-of-the-art object detection algorithms, such as YOLO (You Only Look Once), to automatically identify and localize objects within satellite or aerial imagery.</li>
-            <li><strong>Geographic Coordinate Calculation:</strong> Develop algorithms to calculate the geographic coordinates (latitude and longitude) of detected objects relative to a given bounding polygon.</li>
-            <li><strong>Integration and Visualization:</strong> Integrate object detection results with calculated geographic coordinates to create a comprehensive geospatial dataset. Visualize the detected objects and their geographic locations on maps for further analysis and interpretation.</li>
+            <li><strong>Object Detection:</strong> Utilize state-of-the-art object detection algorithms, such as YOLO
+                (You Only Look Once), to automatically identify and localize objects within satellite or aerial imagery.
+            </li>
+            <li><strong>Geographic Coordinate Calculation:</strong> Develop algorithms to calculate the geographic
+                coordinates (latitude and longitude) of detected objects relative to a given bounding polygon.</li>
+            <li><strong>Integration and Visualization:</strong> Integrate object detection results with calculated
+                geographic coordinates to create a comprehensive geospatial dataset. Visualize the detected objects and
+                their geographic locations on maps for further analysis and interpretation.</li>
         </ul>
-        
+
         <h2 id="significance"><i class="fas fa-flask icon"></i>Scientific Significance</h2>
         <p>The proposed project has several scientific implications and contributions:</p>
         <ul>
-            <li><strong>Automation and Efficiency:</strong> By automating the process of object detection and geographic coordinate calculation, our system significantly reduces the time and effort required for geospatial analysis, thereby enhancing efficiency and scalability.</li>
-            <li><strong>Accuracy and Precision:</strong> Through the integration of advanced algorithms, our system ensures high accuracy and precision in object detection and geographic coordinate calculation, leading to reliable and trustworthy results.</li>
-            <li><strong>Versatility and Adaptability:</strong> The developed system is versatile and adaptable to various applications, including environmental monitoring, urban planning, agriculture, and disaster response. It provides researchers and practitioners with a powerful tool for analyzing geospatial data in diverse contexts.</li>
+            <li><strong>Automation and Efficiency:</strong> By automating the process of object detection and geographic
+                coordinate calculation, our system significantly reduces the time and effort required for geospatial
+                analysis, thereby enhancing efficiency and scalability.</li>
+            <li><strong>Accuracy and Precision:</strong> Through the integration of advanced algorithms, our system
+                ensures high accuracy and precision in object detection and geographic coordinate calculation, leading
+                to reliable and trustworthy results.</li>
+            <li><strong>Versatility and Adaptability:</strong> The developed system is versatile and adaptable to
+                various applications, including environmental monitoring, urban planning, agriculture, and disaster
+                response. It provides researchers and practitioners with a powerful tool for analyzing geospatial data
+                in diverse contexts.</li>
         </ul>
-        
+
         <h2 id="methodology"><i class="fas fa-cogs icon"></i>Methodology</h2>
-        <p>In this section, we outline the methodology employed for deriving geographic coordinates from input data within the InferenceVision framework. This methodological approach combines advanced techniques in satellite image analysis, object detection, and geographic coordinate calculation to enable precise geospatial analysis and visualization.</p>
-        <img src="https://github.com/doguilmak/InferenceVision/raw/main/assets/Inference%20Vision%20Intro.png" alt="Methodology Image">
+        <p>In this section, we outline the methodology employed for deriving geographic coordinates from input data
+            within the InferenceVision framework. This methodological approach combines advanced techniques in satellite
+            image analysis, object detection, and geographic coordinate calculation to enable precise geospatial
+            analysis and visualization.</p>
+        <img src="https://github.com/doguilmak/InferenceVision/raw/main/assets/Inference%20Vision%20Intro.png"
+            alt="Methodology Image">
         <p>Given a set of inputs, the calculation unfolds as follows:</p>
         <ul>
-            <li><strong>Input Preparation:</strong> Load satellite or aerial imagery data along with the bounding polygon defining the area of interest.</li>
-            <li><strong>Object Detection:</strong> Apply YOLO from Ultralytics to identify and localize objects within the imagery. The algorithm outputs bounding boxes around detected objects.</li>
-            <li><strong>Coordinate Transformation:</strong> For each detected object, convert the normalized coordinates of the bounding box to geographic coordinates (latitude and longitude) using the bounding polygon and the image's georeferencing information.</li>
-            <li><strong>Integration:</strong> Combine the detected objects and their geographic coordinates into a comprehensive geospatial dataset.</li>
-            <li><strong>Visualization:</strong> Visualize the detected objects and their geographic locations on a map for further analysis and interpretation.</li>
+            <li><strong>Input Preparation:</strong> Load satellite or aerial imagery data along with the bounding
+                polygon defining the area of interest.</li>
+            <li><strong>Object Detection:</strong> Apply YOLO from Ultralytics to identify and localize objects within
+                the imagery. The algorithm outputs bounding boxes around detected objects.</li>
+            <li><strong>Coordinate Transformation:</strong> For each detected object, convert the normalized coordinates
+                of the bounding box to geographic coordinates (latitude and longitude) using the bounding polygon and
+                the image's georeferencing information.</li>
+            <li><strong>Integration:</strong> Combine the detected objects and their geographic coordinates into a
+                comprehensive geospatial dataset.</li>
+            <li><strong>Visualization:</strong> Visualize the detected objects and their geographic locations on a map
+                for further analysis and interpretation.</li>
         </ul>
-        
+
         <h2 id="install"><i class="fas fa-download icon"></i>Installation and Usage</h2>
         <p>To use the InferenceVision library, follow these steps:</p>
         <ol>
@@ -223,31 +334,60 @@
             image_height=height)</code></pre>
             <pre><code>inference.process_image(build_csv=True, csv_filename="output.csv")</code></pre>
         </ol>
-        
+
         <h2>Results and Visualizations</h2>
-        <p>The results obtained from the InferenceVision library can be visualized in various ways to facilitate analysis and interpretation:</p>
+        <p>The results obtained from the InferenceVision library can be visualized in various ways to facilitate
+            analysis and interpretation:</p>
         <ul>
-            <li><strong>Maps:</strong> Display detected objects and their geographic coordinates on interactive maps.</li>
-            <li><strong>Charts and Graphs:</strong> Create charts and graphs to analyze the distribution and characteristics of detected objects.</li>
-            <li><strong>Reports:</strong> Generate comprehensive reports summarizing the findings and insights derived from the analysis.</li>
+            <li><strong>Maps:</strong> Display detected objects and their geographic coordinates on interactive maps.
+            </li>
+            <li><strong>Charts and Graphs:</strong> Create charts and graphs to analyze the distribution and
+                characteristics of detected objects.</li>
+            <li><strong>Reports:</strong> Generate comprehensive reports summarizing the findings and insights derived
+                from the analysis.</li>
         </ul>
 
         <img src="Difference Map.gif" alt="Difference Map GIF" style="border: 5px solid #e29d84;">
 
         <h3>Debugging and Future Improvements</h3>
-        <p>In case of any errors or unexpected behavior during image processing, carefully review the input data, model configuration, and method calls. Use debugging tools such as print statements, logging, or interactive debugging to identify and resolve issues.</p>
-        <p>Future improvements may include support for alternative object detection models, integration with other geospatial libraries, or optimization of computational efficiency.</p>
-        
+        <p>In case of any errors or unexpected behavior during image processing, carefully review the input data, model
+            configuration, and method calls. Use debugging tools such as print statements, logging, or interactive
+            debugging to identify and resolve issues.</p>
+        <p>Future improvements may include support for alternative object detection models, integration with other
+            geospatial libraries, or optimization of computational efficiency.</p>
+
         <h2>Conclusion</h2>
-        <p>This calculation elucidates the process of deriving geographic coordinates from given inputs, a pivotal step within the InferenceVision framework. It facilitates the transformation of normalized center coordinates into precise geographic coordinates, fostering accurate geospatial analysis and visualization.</p>
-        <p>In conclusion, our scientific project aims to advance the field of geospatial analysis by leveraging cutting-edge technologies and methodologies. By combining object detection with geographic coordinate calculation, we strive to provide researchers and practitioners with an efficient, accurate, and versatile solution for addressing complex geospatial challenges.</p>
+        <p>This calculation elucidates the process of deriving geographic coordinates from given inputs, a pivotal step
+            within the InferenceVision framework. It facilitates the transformation of normalized center coordinates
+            into precise geographic coordinates, fostering accurate geospatial analysis and visualization.</p>
+        <p>In conclusion, our scientific project aims to advance the field of geospatial analysis by leveraging
+            cutting-edge technologies and methodologies. By combining object detection with geographic coordinate
+            calculation, we strive to provide researchers and practitioners with an efficient, accurate, and versatile
+            solution for addressing complex geospatial challenges.</p>
     </div>
     <footer>
         <div class="footer-links">
-            <a href="https://github.com/doguilmak/InferenceVision">
-                <i class="fab fa-github"></i> GitHub Repository
-            </a>
+            <a href="https://github.com/doguilmak/InferenceVision"><i class="fab fa-github"></i>GitHub</a>
+            <a href="mailto:doguilmak@gmail.com"><i class="fas fa-envelope"></i>Email</a>
         </div>
     </footer>
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
 </body>
+
 </html>
