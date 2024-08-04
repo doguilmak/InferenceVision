@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Doğu İlmak">
     <title>InferenceVision</title>
     <link rel="stylesheet" href="styles.css">
@@ -160,11 +160,11 @@
                     <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
                 </div>
                 <div class="code-container">
-                    <pre><code>inference = InferenceVision(tif_path="", ...)</code></pre>
+                    <pre><code>inference = InferenceVision()</code></pre>
                     <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
                 </div>
                 <div class="code-container">
-                    <pre><code>inference.process_image(build_csv=True, csv_filename="output.csv")</code></pre>
+                    <pre><code>inference.process_image()</code></pre>
                     <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
                 </div>
             </div>
