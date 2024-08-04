@@ -48,7 +48,6 @@ header {
     display: flex;
 }
 
-
 /* Navbar styling */
 nav ul {
     list-style: none;
@@ -265,7 +264,7 @@ pre {
     }
 
     .hero img {
-        height: 80vh;
+        height: 70vh;
         width: 98vw;
         position: relative;
         overflow: hidden;
@@ -279,14 +278,39 @@ pre {
 
     #methodology img {
         height: 60vh;
-        width: 85vw;
+        width: 84vw;
         position: relative;
         overflow: hidden;
         display: flex;
     }
 
     .hero img {
-        height: 60vh;
+        height: 57vh;
+        width: 96vw;
+        position: relative;
+        overflow: hidden;
+    }
+
+    code {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 455px) {
+    code {
+        font-size: 0.5em;
+    }
+
+    #methodology img {
+        height: 50vh;
+        width: 80vw;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+    }
+
+    .hero img {
+        height: 45vh;
         width: 97vw;
         position: relative;
         overflow: hidden;
