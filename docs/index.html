@@ -6,165 +6,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="author" content="Doğu İlmak">
     <title>InferenceVision</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script defer src="scripts.js"></script>
 </head>
 
 <body>
     <header>
-        <h1>InferenceVision</h1>
-        <div class="header-right">
-            <nav>
-                <a href="#problem">Problem Statement</a>
-                <a href="#objective">Project Objective</a>
-                <a href="#significance">Scientific Significance</a>
-                <a href="#methodology">Methodology</a>
-                <a href="#install">Install</a>
-            </nav>
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">&#9776;</button>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="#problem">Problem Statement</a>
-                    <a href="#objective">Project Objective</a>
-                    <a href="#significance">Scientific Significance</a>
-                    <a href="#methodology">Methodology</a>
-                    <a href="#install">Install</a>
-                </div>
+        <div class="container">
+            <div class="logo">
+                <!-- <img src="logo.png" alt="Exteriors"> -->
+                <h2 style="color: #e29d84;">InferenceVision</h2>
             </div>
-            <button class="dark-mode-toggle" onclick="toggleDarkMode()">
-                <i class="fas fa-moon"></i>
-            </button>
+            <nav>
+                <ul id="navbar">
+                    <li><a href="#problem-statement">Problem Statement</a></li>
+                    <li><a href="#project-objective">Project Objective</a></li>
+                    <li><a href="#scientific-significance">Scientific Significance</a></li>
+                    <li><a href="#methodology">Methodology</a></li>
+                    <li><a href="#install">Install</a></li>
+                </ul>
+                <div class="dropdown-menu">
+                    <button class="dropdown-toggle">&#9776;</button>
+                    <div class="dropdown-content">
+                        <a href="#problem-statement">Problem Statement</a>
+                        <a href="#project-objective">Project Objective</a>
+                        <a href="#scientific-significance">Scientific Significance</a>
+                        <a href="#methodology">Methodology</a>
+                        <a href="#install">Install</a>
+                    </div>
+                </div>
+            </nav>
         </div>
     </header>
-
-    <section class="hero"></section>
-    <div class="container">
+    <section class="hero">
         <img src="https://github.com/doguilmak/InferenceVision/raw/main/assets/Inference%20Vision%20Cover.png"
-            alt="InferenceVision Cover Image">
-        <p>In contemporary scientific research and applications, there is an increasing demand for accurate geospatial
-            analysis to address various real-world challenges, ranging from environmental monitoring to urban planning
-            and disaster response. The ability to precisely locate and identify objects within geographic areas plays a
-            pivotal role in such endeavors. In this scientific project, we aim to enhance geospatial analysis by
-            integrating object detection techniques with geographic coordinate calculations.</p>
-
-        <hr style="border: none; height: 1px; background-color: #cfcfcf;">
-
-        <h2 id="problem"><i class="fas fa-exclamation-circle icon"></i>Problem Statement</h2>
-        <p>Traditional methods of geospatial analysis often rely on manual identification and mapping of objects within
-            geographical regions. However, these methods are time-consuming, labor-intensive, and prone to errors.
-            Moreover, they may lack the scalability required for large-scale analyses. Therefore, there is a need for
-            automated solutions that can accurately detect and locate objects within geographic areas, enabling
-            efficient and scalable geospatial analysis.</p>
-
-        <h2 id="objective"><i class="fas fa-bullseye icon"></i>Project Objective</h2>
-        <p>Our project seeks to address the aforementioned challenges by developing an automated system that combines
-            object detection algorithms with geographic coordinate calculations. By integrating these components, we aim
-            to achieve the following objectives:</p>
-        <ul>
-            <li><strong>Object Detection:</strong> Utilize state-of-the-art object detection algorithms, such as YOLO
-                (You Only Look Once), to automatically identify and localize objects within satellite or aerial imagery.
-            </li>
-            <li><strong>Geographic Coordinate Calculation:</strong> Develop algorithms to calculate the geographic
-                coordinates (latitude and longitude) of detected objects relative to a given bounding polygon.</li>
-            <li><strong>Integration and Visualization:</strong> Integrate object detection results with calculated
-                geographic coordinates to create a comprehensive geospatial dataset. Visualize the detected objects and
-                their geographic locations on maps for further analysis and interpretation.</li>
-        </ul>
-
-        <h2 id="significance"><i class="fas fa-flask icon"></i>Scientific Significance</h2>
-        <p>The proposed project has several scientific implications and contributions:</p>
-        <ul>
-            <li><strong>Automation and Efficiency:</strong> By automating the process of object detection and geographic
-                coordinate calculation, our system significantly reduces the time and effort required for geospatial
-                analysis, thereby enhancing efficiency and scalability.</li>
-            <li><strong>Accuracy and Precision:</strong> Through the integration of advanced algorithms, our system
-                ensures high accuracy and precision in object detection and geographic coordinate calculation, leading
-                to reliable and trustworthy results.</li>
-            <li><strong>Versatility and Adaptability:</strong> The developed system is versatile and adaptable to
-                various applications, including environmental monitoring, urban planning, agriculture, and disaster
-                response. It provides researchers and practitioners with a powerful tool for analyzing geospatial data
-                in diverse contexts.</li>
-        </ul>
-
-        <h2 id="methodology"><i class="fas fa-cogs icon"></i>Methodology</h2>
-        <p>In this section, we outline the methodology employed for deriving geographic coordinates from input data
-            within the InferenceVision framework. This methodological approach combines advanced techniques in satellite
-            image analysis, object detection, and geographic coordinate calculation to enable precise geospatial
-            analysis and visualization.</p>
-        <img src="https://github.com/doguilmak/InferenceVision/raw/main/assets/Inference%20Vision%20Intro.png"
             alt="Methodology Image">
-        <p>Given a set of inputs, the calculation unfolds as follows:</p>
-        <ul>
-            <li><strong>Input Preparation:</strong> Load satellite or aerial imagery data along with the bounding
-                polygon defining the area of interest.</li>
-            <li><strong>Object Detection:</strong> Apply YOLO from Ultralytics to identify and localize objects within
-                the imagery. The algorithm outputs bounding boxes around detected objects.</li>
-            <li><strong>Coordinate Transformation:</strong> For each detected object, convert the normalized coordinates
-                of the bounding box to geographic coordinates (latitude and longitude) using the bounding polygon and
-                the image's georeferencing information.</li>
-            <li><strong>Integration:</strong> Combine the detected objects and their geographic coordinates into a
-                comprehensive geospatial dataset.</li>
-            <li><strong>Visualization:</strong> Visualize the detected objects and their geographic locations on a map
-                for further analysis and interpretation.</li>
-        </ul>
+    </section>
+    <section id="problem-statement" class="content-section">
+        <div class="container">
+            <div class="content-left">
+                <h2>Problem Statement</h2>
+            </div>
+            <div class="content-right">
+                <p>Traditional methods of geospatial analysis often rely on manual identification and mapping of objects
+                    within geographical regions. However, these methods are time-consuming, labor-intensive, and prone
+                    to errors. Moreover, they may lack the scalability required for large-scale analyses. Therefore,
+                    there is a need for automated solutions that can accurately detect and locate objects within
+                    geographic areas, enabling efficient and scalable geospatial analysis.</p>
+            </div>
+        </div>
+    </section>
+    <section id="project-objective" class="content-section">
+        <div class="container">
+            <div class="content-left">
+                <h2>Project Objective</h2>
+            </div>
+            <div class="content-right">
+                <p>Our project addresses significant challenges through the development of an automated system. This
+                    system combines advanced object detection algorithms with precise geographic coordinate
+                    calculations. The integration of these components aims to achieve several key objectives:</p>
 
-        <h2 id="install"><i class="fas fa-download icon"></i>Installation and Usage</h2>
-        <p>To use the InferenceVision library, follow these steps:</p>
-        <ol>
-            <li>Clone the repository from GitHub:</li>
-            <pre><code>git clone https://github.com/doguilmak/InferenceVision.git</code></pre>
-            <li>Navigate to the project directory:</li>
-            <pre><code>cd InferenceVision</code></pre>
-            <li>Install the required dependencies:</li>
-            <pre><code>pip install -r requirements.txt</code></pre>
-            <li>Run the library:</li>
-            <pre><code>from inference_vision import InferenceVision</code></pre>
-            <pre><code>inference = InferenceVision(tif_path="path/to/image.tif",
-            model_path="path/to/model.pt", 
-            image_width=width, 
-            image_height=height)</code></pre>
-            <pre><code>inference.process_image(build_csv=True, csv_filename="output.csv")</code></pre>
-        </ol>
+                <br>
 
-        <h2>Results and Visualizations</h2>
-        <p>The results obtained from the InferenceVision library can be visualized in various ways to facilitate
-            analysis and interpretation:</p>
-        <ul>
-            <li><strong>Maps:</strong> Display detected objects and their geographic coordinates on interactive maps.
-            </li>
-            <li><strong>Charts and Graphs:</strong> Create charts and graphs to analyze the distribution and
-                characteristics of detected objects.</li>
-            <li><strong>Reports:</strong> Generate comprehensive reports summarizing the findings and insights derived
-                from the analysis.</li>
-        </ul>
+                <p><b>Firstly</b>, leveraging state-of-the-art object detection algorithms like YOLO (You Only Look
+                    Once), our
+                    system automatically identifies and locates objects within satellite or aerial imagery.</p>
 
-        <img src="DifferenceMap.gif" alt="Difference Map GIF" style="border: 5px solid #e29d84;">
+                <p><b>Secondly</b>, we are developing algorithms to accurately calculate the geographic coordinates
+                    (latitude
+                    and longitude) of detected objects in relation to a specified bounding polygon.</p>
 
-        <h3>Debugging and Future Improvements</h3>
-        <p>In case of any errors or unexpected behavior during image processing, carefully review the input data, model
-            configuration, and method calls. Use debugging tools such as print statements, logging, or interactive
-            debugging to identify and resolve issues.</p>
-        <p>Future improvements may include support for alternative object detection models, integration with other
-            geospatial libraries, or optimization of computational efficiency.</p>
+                <p><b>Lastly</b>, integrating the results of object detection with calculated geographic coordinates
+                    forms a
+                    comprehensive geospatial dataset. This dataset allows for the visualization of detected objects and
+                    their precise geographic locations on maps. Such visual representations facilitate further analysis
+                    and interpretation of the data.</p>
 
-        <h2>Conclusion</h2>
-        <p>This calculation elucidates the process of deriving geographic coordinates from given inputs, a pivotal step
-            within the InferenceVision framework. It facilitates the transformation of normalized center coordinates
-            into precise geographic coordinates, fostering accurate geospatial analysis and visualization.</p>
-        <p>In conclusion, our scientific project aims to advance the field of geospatial analysis by leveraging
-            cutting-edge technologies and methodologies. By combining object detection with geographic coordinate
-            calculation, we strive to provide researchers and practitioners with an efficient, accurate, and versatile
-            solution for addressing complex geospatial challenges.</p>
-    </div>
+                <br>
+
+                <p><b>This approach not only streamlines the process of object identification and geographic referencing
+                        but also enhances the capability to derive insights from complex spatial data.</b></p>
+
+            </div>
+        </div>
+    </section>
+    <section id="methodology" class="content-section">
+        <div class="container">
+            <div class="content-left">
+                <h2>Methodology</h2>
+            </div>
+            <div class="content-right">
+                <p>In this section, we outline the methodology employed for deriving geographic coordinates from input
+                    data
+                    within the InferenceVision framework. This methodological approach combines advanced techniques in
+                    satellite
+                    image analysis, object detection, and geographic coordinate calculation to enable precise geospatial
+                    analysis and visualization.</p>
+
+                <img src="https://github.com/doguilmak/InferenceVision/raw/main/assets/Inference%20Vision%20Intro.png"
+                    alt="Methodology Image">
+
+            </div>
+        </div>
+    </section>
+    <section id="scientific-significance" class="content-section">
+        <div class="container">
+            <div class="content-left">
+                <h2>Scientific Significance</h2>
+            </div>
+            <div class="content-right">
+                <p><strong>Automation and Efficiency:</strong> By automating the process of object detection and
+                    geographic coordinate calculation, our system significantly reduces the time and effort required for
+                    geospatial analysis, thereby enhancing efficiency and scalability.</p>
+                <hr>
+                <p><strong>Accuracy and Precision:</strong> Through the integration of advanced algorithms, our system
+                    ensures high accuracy and precision in object detection and geographic coordinate calculation,
+                    leading to reliable and trustworthy results.</p>
+                <hr>
+                <p><strong>Versatility and Adaptability:</strong> The developed system is versatile and adaptable to
+                    various applications, including environmental monitoring, urban planning, agriculture, and disaster
+                    response. It provides researchers and practitioners with a powerful tool for analyzing geospatial
+                    data in diverse contexts.</p>
+            </div>
+        </div>
+    </section>
+    <section id="install" class="content-section">
+        <div class="container">
+            <div class="content-left">
+                <h2>Install</h2>
+            </div>
+
+            <div class="content-right">
+                <h3>Clone the repository from GitHub</h3>
+                <div class="code-container">
+                    <pre><code>git clone https://github.com/doguilmak/InferenceVision.git</code></pre>
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                </div>
+                <h3>Navigate to the project directory</h3>
+                <div class="code-container">
+                    <pre><code>cd InferenceVision</code></pre>
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                </div>
+                <h3>Install the required dependencies</h3>
+                <div class="code-container">
+                    <pre><code>pip install -r requirements.txt</code></pre>
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                </div>
+                <h3>Import and run the library</h3>
+                <div class="code-container">
+                    <pre><code>from inference_vision import InferenceVision</code></pre>
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                </div>
+                <div class="code-container">
+                    <pre><code>inference = InferenceVision(tif_path="", ...)</code></pre>
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                </div>
+                <div class="code-container">
+                    <pre><code>inference.process_image(build_csv=True, csv_filename="output.csv")</code></pre>
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer>
         <div class="footer-links">
-            <a href="https://github.com/doguilmak/InferenceVision"><i class="fab fa-github"></i>GitHub</a>
+            <a href="https://github.com/doguilmak/InferenceVision" target="_blank"><i
+                    class="fab fa-github"></i>GitHub</a>
             <a href="mailto:doguilmak@gmail.com"><i class="fas fa-envelope"></i>Email</a>
         </div>
     </footer>
-    <script src="scripts.js"></script>
 </body>
 
 </html>
