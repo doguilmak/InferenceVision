@@ -244,6 +244,16 @@ pre {
 }
 
 /* Responsive styles */
+@media (min-width: 2560px) {
+    #methodology img {
+        height: 89vh;
+        width: 89vw;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+    }
+}
+
 @media (max-width: 1120px) {
     .dropdown-menu {
         display: block;
