@@ -39,7 +39,7 @@ header {
 /* Image */
 #methodology img {
     height: 90vh;
-    width: 87vw;
+    width: 89vw;
     position: relative;
     display: block;
     overflow: hidden;
@@ -419,7 +419,7 @@ pre {
     }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 376px) {
     .hero h2 {
         font-size: 0.3em;
     }
