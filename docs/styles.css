@@ -16,8 +16,10 @@ header {
     position: fixed;
     width: 100%;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
-    backdrop-filter: blur(10px); /* Blurry effect */
+    background: rgba(255, 255, 255, 0.5);
+    /* Semi-transparent background */
+    backdrop-filter: blur(10px);
+    /* Blurry effect */
     padding: 10px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -116,7 +118,8 @@ nav ul li a:hover {
 }
 
 .dropdown-content a:hover {
-    background-color: rgba(226, 157, 132, 0.8); /* Semi-transparent hover color */
+    background-color: rgba(226, 157, 132, 0.8);
+    /* Semi-transparent hover color */
     color: #fff;
 }
 
@@ -319,7 +322,9 @@ pre {
         font-size: 1.5em;
     }
 
-    p, a, li {
+    p,
+    a,
+    li {
         font-size: 1.25em;
     }
 
@@ -364,11 +369,13 @@ pre {
 /* Tablets */
 @media (max-width: 1120px) {
     .dropdown-menu {
-        display: block; /* Show dropdown menu button */
+        display: block;
+        /* Show dropdown menu button */
     }
 
-    nav ul {
-        display: none; /* Hide navbar items */
+    .hero img {
+        height: 70vh;
+        width: 98vw;
     }
 
     #methodology img {
@@ -376,21 +383,20 @@ pre {
         width: 89vw;
     }
 
-    .hero img {
-        height: 70vh;
-        width: 98vw;
+    nav ul {
+        display: none;
+        /* Hide navbar items */
     }
 }
 
 /* Smart Phones */
 @media (max-width: 600px) {
-    .hero h2 {
-        font-size: 2em;
+    code {
+        font-size: 0.8em;
     }
 
-    #methodology img {
-        height: 60vh;
-        width: 84vw;
+    .hero h2 {
+        font-size: 2em;
     }
 
     .hero img {
@@ -398,8 +404,9 @@ pre {
         width: 96vw;
     }
 
-    code {
-        font-size: 0.8em;
+    #methodology img {
+        height: 60vh;
+        width: 84vw;
     }
 }
 
@@ -408,33 +415,25 @@ pre {
         font-size: 0.5em;
     }
 
-    #methodology img {
-        height: 50vh;
-        width: 80vw;
-    }
-
     .hero img {
         height: 45vh;
         width: 97vw;
     }
+
+    #methodology img {
+        height: 50vh;
+        width: 80vw;
+    }
 }
 
 @media (max-width: 376px) {
-    .hero h2 {
-        font-size: 0.3em;
+    code {
+        font-size: 0.4em;
     }
 
     .code-container {
         flex-direction: column;
         align-items: stretch;
-    }
-
-    pre {
-        white-space: nowrap;
-        word-break: normal;
-        max-height: 150px;
-        width: 100%;
-        padding: 10px 8px;
     }
 
     .copy-btn {
@@ -447,13 +446,25 @@ pre {
         width: 95%;
     }
 
-    #methodology img {
-        height: 35vh;
-        width: 75vw;
+    .hero h2 {
+        font-size: 0.3em;
     }
 
     .hero img {
-        height: 33vh;
-        width: 90vw;
+        height: 35vh;
+        width: 97vw;
+    }
+
+    pre {
+        white-space: nowrap;
+        word-break: normal;
+        max-height: 150px;
+        width: 100%;
+        padding: 10px 8px;
+    }
+
+    #methodology img {
+        height: 35vh;
+        width: 75vw;
     }
 }
