@@ -91,6 +91,10 @@ $$ lon = lon_{top \space left} + (lon_{bottom \space right} - lon_{top \space le
 
 <br>
 
+<img  src="https://github.com/doguilmak/InferenceVision/blob/main/docs/DifferenceMap.gif" alt="github.com/doguilmak/InferenceVision"/>
+
+<br>
+
 **NOTE: The input image must have a CRS set to ensure accurate geographic coordinate calculation.**
 
 <br>
