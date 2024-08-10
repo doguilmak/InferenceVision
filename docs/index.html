@@ -12,44 +12,54 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script defer src="scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script>
+        if (!Modernizr.backdropfilter) {
+            document.querySelector('header').classList.add('no-backdrop-filter');
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.12.1/polyfill.min.js"></script>
 </head>
 
 <body>
-    <header>
+    <header role="banner">
         <div class="container">
-            <div class="logo">
-                <!-- <img src="logo.png" alt="Exteriors"> -->
+            <div class="logo" role="img" aria-label="InferenceVision Logo">
                 <h2 style="color: #e29d84;">InferenceVision</h2>
             </div>
-            <nav>
-                <ul id="navbar">
-                    <li><a href="#problem-statement">Problem Statement</a></li>
-                    <li><a href="#project-objective">Project Objective</a></li>
-                    <li><a href="#methodology">Methodology</a></li>
-                    <li><a href="#scientific-significance">Scientific Significance</a></li>
-                    <li><a href="#install">Install</a></li>
+            <nav role="navigation">
+                <ul id="navbar" aria-label="Main Navigation">
+                    <li><a href="#problem-statement" aria-label="Problem Statement">Problem Statement</a></li>
+                    <li><a href="#project-objective" aria-label="Project Objective">Project Objective</a></li>
+                    <li><a href="#methodology" aria-label="Methodology">Methodology</a></li>
+                    <li><a href="#scientific-significance" aria-label="Scientific Significance">Scientific
+                            Significance</a></li>
+                    <li><a href="#install" aria-label="Installation Instructions">Install</a></li>
                 </ul>
                 <div class="dropdown-menu">
-                    <button class="dropdown-toggle">&#9776;</button>
-                    <div class="dropdown-content">
-                        <a href="#problem-statement">Problem Statement</a>
-                        <a href="#project-objective">Project Objective</a>
-                        <a href="#methodology">Methodology</a>
-                        <a href="#scientific-significance">Scientific Significance</a>
-                        <a href="#install">Install</a>
+                    <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">&#9776;</button>
+                    <div class="dropdown-content" role="menu" aria-hidden="true" data-dropdown-menu>
+                        <a href="#problem-statement" role="menuitem" aria-label="Problem Statement">Problem
+                            Statement</a>
+                        <a href="#project-objective" role="menuitem" aria-label="Project Objective">Project
+                            Objective</a>
+                        <a href="#methodology" role="menuitem" aria-label="Methodology">Methodology</a>
+                        <a href="#scientific-significance" role="menuitem"
+                            aria-label="Scientific Significance">Scientific Significance</a>
+                        <a href="#install" role="menuitem" aria-label="Installation Instructions">Install</a>
                     </div>
                 </div>
             </nav>
         </div>
     </header>
-    <section class="hero">
+    <section class="hero" aria-label="Hero Section">
         <img src="https://github.com/doguilmak/InferenceVision/raw/main/assets/Inference%20Vision%20Cover.png"
-            alt="Methodology Image">
+            alt="Hero image showcasing InferenceVision" role="img">
     </section>
-    <section id="problem-statement" class="content-section">
+    <section id="problem-statement" class="content-section" aria-labelledby="problem-statement-heading">
         <div class="container">
             <div class="content-left">
-                <h2>Problem Statement</h2>
+                <h2 id="problem-statement-heading">Problem Statement</h2>
             </div>
             <div class="content-right">
                 <p>Traditional methods of geospatial analysis often rely on manual identification and mapping of objects
@@ -60,10 +70,10 @@
             </div>
         </div>
     </section>
-    <section id="project-objective" class="content-section">
+    <section id="project-objective" class="content-section" aria-labelledby="project-objective-heading">
         <div class="container">
             <div class="content-left">
-                <h2>Project Objective</h2>
+                <h2 id="project-objective-heading">Project Objective</h2>
             </div>
             <div class="content-right">
                 <p>Our project addresses significant challenges through the development of an automated system. This
@@ -94,10 +104,10 @@
             </div>
         </div>
     </section>
-    <section id="methodology" class="content-section">
+    <section id="methodology" class="content-section" aria-labelledby="methodology-heading">
         <div class="container">
             <div class="content-left">
-                <h2>Methodology</h2>
+                <h2 id="methodology-heading">Methodology</h2>
             </div>
             <div class="content-right">
                 <p>In this section, we outline the methodology employed for deriving geographic coordinates from input
@@ -108,15 +118,15 @@
                     analysis and visualization.</p>
 
                 <img src="https://github.com/doguilmak/InferenceVision/raw/main/assets/Inference%20Vision%20Intro.png"
-                    alt="Methodology Image">
+                    alt="Diagram illustrating the methodology" role="img">
 
             </div>
         </div>
     </section>
-    <section id="scientific-significance" class="content-section">
+    <section id="scientific-significance" class="content-section" aria-labelledby="scientific-significance-heading">
         <div class="container">
             <div class="content-left">
-                <h2>Scientific Significance</h2>
+                <h2 id="scientific-significance-heading">Scientific Significance</h2>
             </div>
             <div class="content-right">
                 <p><strong>Automation and Efficiency:</strong> By automating the process of object detection and
@@ -134,49 +144,55 @@
             </div>
         </div>
     </section>
-    <section id="install" class="content-section">
+    <section id="install" class="content-section" aria-labelledby="install-heading">
         <div class="container">
             <div class="content-left">
-                <h2>Install</h2>
+                <h2 id="install-heading">Install</h2>
             </div>
 
             <div class="content-right">
                 <h3>Clone the repository from GitHub</h3>
                 <div class="code-container">
                     <pre><code>git clone https://github.com/doguilmak/InferenceVision.git</code></pre>
-                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <button class="copy-btn" onclick="copyToClipboard(this)"
+                        aria-label="Copy git clone command">Copy</button>
                 </div>
                 <h3>Navigate to the project directory</h3>
                 <div class="code-container">
                     <pre><code>cd InferenceVision</code></pre>
-                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <button class="copy-btn" onclick="copyToClipboard(this)"
+                        aria-label="Copy change directory command">Copy</button>
                 </div>
                 <h3>Install the required dependencies</h3>
                 <div class="code-container">
                     <pre><code>pip install -r requirements.txt</code></pre>
-                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <button class="copy-btn" onclick="copyToClipboard(this)"
+                        aria-label="Copy install dependencies command">Copy</button>
                 </div>
                 <h3>Import and run the library</h3>
                 <div class="code-container">
                     <pre><code>from inference_vision import InferenceVision</code></pre>
-                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <button class="copy-btn" onclick="copyToClipboard(this)"
+                        aria-label="Copy import command">Copy</button>
                 </div>
                 <div class="code-container">
                     <pre><code>inference = InferenceVision()</code></pre>
-                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <button class="copy-btn" onclick="copyToClipboard(this)"
+                        aria-label="Copy import function command">Copy</button>
                 </div>
                 <div class="code-container">
                     <pre><code>inference.process_image()</code></pre>
-                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <button class="copy-btn" onclick="copyToClipboard(this)"
+                        aria-label="Copy run function command">Copy</button>
                 </div>
             </div>
         </div>
     </section>
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-links">
-            <a href="https://github.com/doguilmak/InferenceVision" target="_blank"><i
+            <a href="https://github.com/doguilmak/InferenceVision" target="_blank" aria-label="GitHub Repository"><i
                     class="fab fa-github"></i>GitHub</a>
-            <a href="mailto:doguilmak@gmail.com"><i class="fas fa-envelope"></i>Email</a>
+            <a href="mailto:doguilmak@gmail.com" aria-label="Contact Email"><i class="fas fa-envelope"></i>Email</a>
         </div>
     </footer>
 </body>
