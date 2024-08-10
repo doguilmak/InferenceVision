@@ -19,6 +19,8 @@ header {
     background: rgba(255, 255, 255, 0.5);
     /* Semi-transparent background */
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* Safari */
     /* Blurry effect */
     padding: 10px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -416,14 +418,17 @@ pre {
     }
 
     .hero img {
-        height: 45vh;
-        width: 97vw;
+        max-height: 70vh;
+        width: auto;
+        max-width: 100%;
     }
-
+    
     #methodology img {
-        height: 50vh;
-        width: 80vw;
+        max-height: 75vh;
+        width: auto;
+        max-width: 100%;
     }
+    
 }
 
 @media (max-width: 376px) {
@@ -451,8 +456,9 @@ pre {
     }
 
     .hero img {
-        height: 35vh;
-        width: 97vw;
+        max-height: 60vh;
+        width: auto;
+        max-width: 100%;
     }
 
     pre {
