@@ -43,7 +43,7 @@ header {
 /* Image */
 #methodology img {
     height: 90vh;
-    width: 89vw;
+    width: 85vw;
     position: relative;
     display: block;
     overflow: hidden;
@@ -422,13 +422,13 @@ pre {
         width: auto;
         max-width: 100%;
     }
-    
+
     #methodology img {
         max-height: 75vh;
         width: auto;
         max-width: 100%;
     }
-    
+
 }
 
 @media (max-width: 376px) {
