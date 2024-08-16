@@ -18,6 +18,11 @@ Stay tuned for regular updates on our progress and new developments:
 	<li>Launched InferenceVision version 1.0!</li>
 </ol>
 
+<b>August 2024</b>
+<ol>
+	<li>Launched InferenceVision version 1.1!</li>
+</ol>
+
 </details>
 
 <br>
@@ -106,11 +111,11 @@ $$ lon = lon_{top \space left} + (lon_{bottom \space right} - lon_{top \space le
 **1- Install the Library Run the following command in a code cell to install `inference_vision` from GitHub:**
 
     git clone https://github.com/doguilmak/InferenceVision.git
+    cd InferenceVision
 
 
 **2- Install requirements using `requirements.txt` file.**
 	
-	cd InferenceVision
     pip install -r requirements.txt -q
 
 **3- Once the installation is complete, import the `InferenceVision` class from the library.** 
@@ -119,10 +124,10 @@ $$ lon = lon_{top \space left} + (lon_{bottom \space right} - lon_{top \space le
 
 **4- Here's a simple example demonstrating how to use `InferenceVision`:**
 
-    inference = InferenceVision(tif_path="path/to/image.tif",
-	     model_path="path/to/model.pt", 
-	     image_width=width, 
-	     image_height=height) # Process image 
+    inference = InferenceVision(
+         tif_path="path/to/image.tif",
+	     model_path="path/to/model.pt"
+	)
     
     inference.process_image(build_csv=True, csv_filename="output.csv")
 
@@ -146,3 +151,7 @@ $$ lon = lon_{top \space left} + (lon_{bottom \space right} - lon_{top \space le
 This calculation elucidates the process of deriving geographic coordinates from given inputs, a pivotal step within `InferenceVision` framework. It facilitates the transformation of normalized center coordinates into precise geographic coordinates, fostering accurate geospatial analysis and visualization. Geographic coordinates, namely latitude and longitude, are indispensable for pinpointing specific locations on Earth's surface. This process outlined here harmonizes normalized center coordinates, relative values within a bounding area, into a set of coordinates mappable onto a geographical map for comprehensive analysis. In conclusion, our scientific project aims to advance the field of geospatial analysis by leveraging cutting-edge technologies and methodologies. By combining object detection with geographic coordinate calculation, we strive to provide researchers and practitioners with an efficient, accurate, and versatile solution for addressing complex geospatial challenges.
 
 <br>
+
+## **Citation**
+
+For a detailed exploration of related work, refer to the research article available at [ResearchGate](https://www.researchgate.net/publication/381636131_A_GEOSPATIAL_DATAFRAME_OF_COLLAPSED_BUILDINGS_IN_ANTAKYA_CITY_AFTER_THE_2023_KAHRAMANMARAS_EARTHQUAKES_USING_OBJECT_DETECTION_BASED_ON_YOLO_AND_VHR_SATELLITE_IMAGES). Presented at IEEE IGARSS 2024 in Athens, our article delves into the application of object detection techniques in geospatial contexts, highlighting the ultimate use of Very High Resolution (VHR) satellite imagery for analyzing disaster impacts.
