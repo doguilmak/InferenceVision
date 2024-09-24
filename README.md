@@ -1,4 +1,3 @@
-
 <img  src="https://github.com/doguilmak/InferenceVision/blob/main/assets/Inference%20Vision%20Cover.png" alt="github.com/doguilmak/InferenceVision"/>
 
 In contemporary scientific research and applications, there is an increasing demand for accurate geospatial analysis to address various real-world challenges, ranging from environmental monitoring to urban planning and disaster response. The ability to precisely locate and identify objects within geographic areas plays a pivotal role in such endeavors. In this scientific project, we aim to enhance geospatial analysis by integrating object detection techniques with geographic coordinate calculations. Please check our [website](https://doguilmak.github.io/InferenceVision/) for the library. You'll find a wealth of information and materials available to enrich your knowledge and learning experience.
@@ -65,35 +64,62 @@ In this section, we outline the methodology employed for deriving geographic coo
 
 <br>
 
-**1- Transform VHR Satellite Image Coordinates to WGS 84 (EPSG:4326) and Extract Polygon Coordinates:** The target Coordinate Reference System (CRS) is WGS 84, representing a geographic coordinate system. Converting to this CRS standardizes the data. We use Nearest Neighbor interpolation, which can result in a blocky appearance. Transformed coordinates are precise to 6 decimal places. First, we transform image coordinates to WGS 84. Then, we extract polygon coordinates, defining the geographical extent with top-left and bottom-right corners as reference points for computing the geographic coordinates of normalized centers.
+**1- Transform VHR Satellite Image Coordinates to WGS 84 (EPSG:4326) and Extract Polygon Coordinates:** The target Coordinate Reference System (CRS) is WGS 84, representing a geographic coordinate system. Converting to this CRS standardizes the data. We use Nearest Neighbor interpolation, which can result in a blocky appearance. Transformed coordinates are precise to 9 decimal places (as default). First, we transform image coordinates to WGS 84. The coordinates of the polygons are defined as G (geometric shapes) and the following transformation operations are applied to convert these shapes to the geographic coordinate system:
 
 <br>
 
-$$ \text{Polygon coordinates} = {(lat_{top \space left}, lon_{top \space left}), (lat_{bottom \space right}, lon_{bottom \space right})} $$
+$$ G_{EPSG:4326} = transform(G_{dataset}, CRS_{dataset}) $$
 
 <br>
 
-**2- Calculate Normalized Centers:** Retrieve the pixel coordinates of the bounding box, then calculate its center. Next, proceed to normalize each center of the bounding box using image size. Representing the relative positions of objects within the defined polygon, normalized center coordinates are structured as a matrix with rows $(y_{norm}, x_{norm})$ for $i = 1, 2, \ldots, number \space of \space centers$.
+Then, we extract polygon coordinates, defining the geographical extent with top-left ($TL$) and bottom-right ($BR$) corners as reference points for computing the geographic coordinates of normalized centers.
 
 <br>
 
 <br>
 
-**3- Calculate Geographic Coordinates:** The function calculates geographic coordinates using the following equations. For each $i$ from $1$ to $number \space of \space centers$ in the image:
+**2- Calculate Normalized Centers:** In the second stage, model making prediction and making detections. Then, the center coordinates of the detected objects are calculated from their bounding boxes. The edge coordinates determined for each object ($x_{min}$, $y_{min}$, $x_{max}$, $y_{max}$) are used. $x_{min}$ and $x_{max}$ are the pixel coordinates of the left and right edges of the bounding boxes on the x-axis, and $y_{min}$ and $y_{max}$ are the pixel coordinates of the top and bottom edges of the bounding boxes on the y-axis. The center point of the object is determined by the following formula:
 
 <br>
 
-$$ lat = lat_{top \space left} + (lat_{bottom \space right} - lat_{top \space left}) \times y_{norm} $$
+$$ (x_{center}, y_{center}) = (\frac{x_{min} + x_{max}}{2} + \frac{y_{min}+y_{max}}{2})$$
 
-$$ lon = lon_{top \space left} + (lon_{bottom \space right} - lon_{top \space left}) \times x_{norm} $$
+<br>
+
+The centroids of the bounding boxes are then normalized, which is necessary to convert the pixel coordinates of object locations within the image into a standard format. Normalization can be expressed as:
+
+<br>
+
+$$N_x = \frac{x_{center}}{W}$$
+$$N_y = \frac{y_{center}}{H}$$
+
+Where:
+- **$N_x$**: The value of the normalized pixel coordinate of the center point along the x-axis.
+- **$N_y$**: The value of the normalized pixel coordinate of the center point along the y-axis.
+- **$X_{center}$**: The x pixel coordinate of the center of the bounding box.
+- **$Y_{center}$**: The y pixel coordinate of the center of the bounding box.
+- **$W$**: The total width of the raster image.
+- **$H$**: The total height of the raster image.
+
+<br>
+
+<br>
+
+**3- Calculate Geographic Coordinates:** Finally, the geographic coordinates are calculated using the normalized center coordinates. In this stage, the corner coordinates of the extracted polygon are taken as reference. The normalized values ​​are used to determine the actual locations on the geographic area by associating them with these corner coordinates. The calculation is carried out with the following formulas:
+
+<br>
+
+$$ lat = lat_{TL} + (lat_{BR} - lat_{TL}) \times N_{x} $$
+
+$$ lon = lon_{TL} + (lon_{BR} - lon_{TL}) \times N_{y} $$
 
    
    **Where:**
 
    - $lat$ represents latitude.
    - $lon$ represents longitude.
-   - $y_{norm}$ and $x_{norm}$ are the normalized center coordinates.
-   - $lat_{top \space left}, lon_{top \space left}, lat_{bottom \space right},$ and $lon_{bottom \space right}$ are the latitude and longitude of the top-left and bottom-right corners of the polygon, respectively.
+   - $N_{x}$ and $N_{y}$ are the normalized center coordinates.
+   - $lat_{TL}, lon_{TL}, lat_{BR},$ and $lon_{BR}$ are the latitude and longitude of the top-left and bottom-right corners of the polygon, respectively.
 
 <br>
 
@@ -155,4 +181,22 @@ This calculation elucidates the process of deriving geographic coordinates from 
 
 ## **Citation**
 
-For a detailed exploration of related work, refer to the research article available at [ResearchGate](https://www.researchgate.net/publication/381636131_A_GEOSPATIAL_DATAFRAME_OF_COLLAPSED_BUILDINGS_IN_ANTAKYA_CITY_AFTER_THE_2023_KAHRAMANMARAS_EARTHQUAKES_USING_OBJECT_DETECTION_BASED_ON_YOLO_AND_VHR_SATELLITE_IMAGES). Presented at IEEE IGARSS 2024 in Athens, our article delves into the application of object detection techniques in geospatial contexts, highlighting the ultimate use of Very High Resolution (VHR) satellite imagery for analyzing disaster impacts.
+For a detailed exploration of related work, refer to the research article available at [IEEE](https://ieeexplore.ieee.org/document/10642920). Presented at IEEE IGARSS 2024 in Athens, our article delves into the application of object detection techniques in geospatial contexts, highlighting the ultimate use of Very High Resolution (VHR) satellite imagery for analyzing disaster impacts.
+
+<br>
+
+**Plain Text**:
+
+D. Ilmak, M. C. Iban and D. Zafer Şeker, "A Geospatial Dataframe of Collapsed Buildings in Antakya City after the 2023 Kahramanmaraş Earthquakes Using Object Detection Based on YOLO and VHR Satellite Images," _IGARSS 2024 - 2024 IEEE International Geoscience and Remote Sensing Symposium_, Athens, Greece, 2024, pp. 3915-3919, doi: 10.1109/IGARSS53475.2024.10642920.
+
+**BibTex**:
+
+    @INPROCEEDINGS{10642920,
+      author = {Ilmak, Dogu and Iban, Muzaffer Can and Zafer Şeker, Dursun},
+      title = {A Geospatial Dataframe of Collapsed Buildings in Antakya City after the 2023 Kahramanmaraş Earthquakes Using Object Detection Based on YOLO and VHR Satellite Images},
+      booktitle = {IGARSS 2024 - 2024 IEEE International Geoscience and Remote Sensing Symposium},
+      year = {2024},
+      pages = {3915-3919},
+      keywords = {YOLO; Buildings; Urban areas; Earthquakes; Geoscience and remote sensing; Satellite images; Sensors; Geospatial analysis; Context modeling; Deep Learning; Object Detection; Very High-Resolution Satellite Imagery; Remote Sensing; Earthquake Damage Assessment},
+      doi = {10.1109/IGARSS53475.2024.10642920}
+    }
