@@ -186,7 +186,7 @@ For a detailed exploration of related work, refer to the research article availa
 
 <br>
 
-**BibTex**:
+**BibTeX**:
 
     @INPROCEEDINGS{10642920,
       author = {Ilmak, Dogu and Iban, Muzaffer Can and Zafer Şeker, Dursun},
