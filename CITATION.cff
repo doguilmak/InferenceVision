@@ -1,30 +1,27 @@
-cff-version: 1.2
-message: "Please cite this work as follows"
-title: "A Geospatial Dataframe of Collapsed Buildings in Antakya City after the 2023 Kahramanmaraş Earthquakes Using Object Detection Based on YOLO and VHR Satellite Images"
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
 authors:
-  - family-names: Ilmak
-    given-names: Dogu
-  - family-names: Iban
-    given-names: Muzaffer Can
-  - family-names: Zafer Şeker
-    given-names: Dursun
-conference:
-  name: "IGARSS 2024 - 2024 IEEE International Geoscience and Remote Sensing Symposium"
-date: 2024-01-01
-pages: "3915-3919"
-keywords:
-  - "YOLO"
-  - "Buildings"
-  - "Urban areas"
-  - "Earthquakes"
-  - "Geoscience and remote sensing"
-  - "Satellite images"
-  - "Sensors"
-  - "Geospatial analysis"
-  - "Context modeling"
-  - "Deep Learning"
-  - "Object Detection"
-  - "Very High-Resolution Satellite Imagery"
-  - "Remote Sensing"
-  - "Earthquake Damage Assessment"
+  - family-names: "Ilmak"
+    given-names: "Dogu"
+  - family-names: "Iban"
+    given-names: "Muzaffer Can"
+  - family-names: "Zafer Şeker"
+    given-names: "Dursun"
+title: "A Geospatial Dataframe of Collapsed Buildings in Antakya City after the 2023 Kahramanmaraş Earthquakes Using Object Detection Based on YOLO and VHR Satellite Images"
+version: "1.0.0"
 doi: "10.1109/IGARSS53475.2024.10642920"
+date-released: "2024-09-05"
+url: "https://github.com/your-repo-link"
+preferred-citation:
+  type: conference-paper
+  authors:
+    - family-names: "Ilmak"
+      given-names: "Dogu"
+    - family-names: "Iban"
+      given-names: "Muzaffer Can"
+    - family-names: "Zafer Şeker"
+      given-names: "Dursun"
+  title: "A Geospatial Dataframe of Collapsed Buildings in Antakya City after the 2023 Kahramanmaraş Earthquakes Using Object Detection Based on YOLO and VHR Satellite Images"
+  booktitle: "IGARSS 2024 - 2024 IEEE International Geoscience and Remote Sensing Symposium"
+  year: 2024
+  pages: "3915-3919"
