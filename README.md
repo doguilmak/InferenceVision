@@ -186,10 +186,6 @@ For a detailed exploration of related work, refer to the research article availa
 
 <br>
 
-**Plain Text**:
-
-D. Ilmak, M. C. Iban and D. Zafer Şeker, "A Geospatial Dataframe of Collapsed Buildings in Antakya City after the 2023 Kahramanmaraş Earthquakes Using Object Detection Based on YOLO and VHR Satellite Images," _IGARSS 2024 - 2024 IEEE International Geoscience and Remote Sensing Symposium_, Athens, Greece, 2024, pp. 3915-3919, doi: 10.1109/IGARSS53475.2024.10642920.
-
 **BibTex**:
 
     @INPROCEEDINGS{10642920,
