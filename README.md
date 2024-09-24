@@ -91,6 +91,7 @@ The centroids of the bounding boxes are then normalized, which is necessary to c
 <br>
 
 $$N_x = \frac{x_{center}}{W}$$
+
 $$N_y = \frac{y_{center}}{H}$$
 
 Where:
