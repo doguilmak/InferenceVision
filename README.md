@@ -12,15 +12,20 @@ Stay tuned for regular updates on our progress and new developments:
 
 <br>
 
-<b>June 2024</b>
+<b>December 2024</b>
 <ol>
-	<li>Launched InferenceVision version 1.0!</li>
+	<li>Introduced the advanced language model for technical Q&A with InferenceVision!</li>
 </ol>
 
 <b>August 2024</b>
 <ol>
 	<li>Launched InferenceVision version 1.1!</li>
 	<li>Launched InferenceVision version 1.2!</li>
+</ol>
+
+<b>June 2024</b>
+<ol>
+	<li>Launched InferenceVision version 1.0!</li>
 </ol>
 
 </details>
