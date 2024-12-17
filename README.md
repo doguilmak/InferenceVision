@@ -14,7 +14,7 @@ Stay tuned for regular updates on our progress and new developments:
 
 <b>December 2024</b>
 <ol>
-	<li>Introduced the advanced language model for technical Q&A with InferenceVision!</li>
+<li>Introduced the advanced language model for technical Q&A with InferenceVision!</li>
 </ol>
 
 <b>August 2024</b>
