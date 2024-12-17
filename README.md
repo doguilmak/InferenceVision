@@ -194,7 +194,7 @@ To enhance your experience with **InferenceVision**, we've integrated an advance
 - **Q&A Focus**: Tailored to answer questions about object detection and geospatial analysis.
 - **Efficient**: Optimized for large-scale data processing and intricate language tasks.
 
-For a hands-on guide on fine-tuning and using this model with **InferenceVision**, check out the [interactive notebook](https://github.com/doguilmak/InferenceVision/blob/main/usage/InferenceVision_LLM_QA.ipynb).
+For a hands-on guide on fine-tuning and using this model with **InferenceVision**, check out the [interactive notebook](https://github.com/doguilmak/InferenceVision/blob/main/usage/InferenveVision_LLM_QA.ipynb).
 
 <br>
 
