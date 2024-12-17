@@ -175,6 +175,24 @@ $$ lon = lon_{TL} + (lon_{BR} - lon_{TL}) \times N_{y} $$
 
 <br>
 
+## **Advanced Language Model for InferenceVision**
+
+To enhance your experience with **InferenceVision**, we've integrated an advanced language model based on **EleutherAI/pythia-1b**. This model is designed to help users understand the technical background of the project, offering detailed Q&A support on topics like geospatial analysis, object detection, and geographic coordinate calculation.
+
+### **Model Overview**
+
+**EleutherAI/pythia-1b** is a powerful language model with a large number of parameters, enabling it to generate complex, context-aware responses. It's fine-tuned for answering technical questions about **InferenceVision** and related topics, making it a valuable tool for users looking for deeper insights into the project's methodology.
+
+### **Key Features:**
+
+- **Large Capacity**: Handles complex text patterns for detailed, high-quality responses.
+- **Q&A Focus**: Tailored to answer questions about object detection and geospatial analysis.
+- **Efficient**: Optimized for large-scale data processing and intricate language tasks.
+
+For a hands-on guide on fine-tuning and using this model with **InferenceVision**, check out the [interactive notebook](https://github.com/doguilmak/InferenceVision/blob/main/usage/InferenceVision_LLM_QA.ipynb).
+
+<br>
+
 ## **Conclusion**
 This calculation elucidates the process of deriving geographic coordinates from given inputs, a pivotal step within `InferenceVision` framework. It facilitates the transformation of normalized center coordinates into precise geographic coordinates, fostering accurate geospatial analysis and visualization. Geographic coordinates, namely latitude and longitude, are indispensable for pinpointing specific locations on Earth's surface. This process outlined here harmonizes normalized center coordinates, relative values within a bounding area, into a set of coordinates mappable onto a geographical map for comprehensive analysis. In conclusion, our scientific project aims to advance the field of geospatial analysis by leveraging cutting-edge technologies and methodologies. By combining object detection with geographic coordinate calculation, we strive to provide researchers and practitioners with an efficient, accurate, and versatile solution for addressing complex geospatial challenges.
 
