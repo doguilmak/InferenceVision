@@ -19,27 +19,28 @@
     <header role="banner">
         <div class="container">
             <div class="logo" role="img" aria-label="InferenceVision Logo">
-                <h2 style="color: #e29d84;">InferenceVision</h2>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <h2 style="color: #e29d84;">InferenceVision</h2>
+                </a>
             </div>
             <nav role="navigation">
                 <ul id="navbar" aria-label="Main Navigation">
-                    <li><a href="#problem-statement" aria-label="Problem Statement">Problem Statement</a></li>
-                    <li><a href="#project-objective" aria-label="Project Objective">Project Objective</a></li>
-                    <li><a href="#methodology" aria-label="Methodology">Methodology</a></li>
-                    <li><a href="#scientific-significance" aria-label="Scientific Significance">Scientific
-                            Significance</a></li>
+                    <li><a href="problem.html" aria-label="Problem Statement">Problem Statement</a></li>
+                    <li><a href="objectives.html" aria-label="Project Objective">Project Objectives</a></li>
+                    <li><a href="methodology.html" aria-label="Methodology">Methodology</a></li>
+                    <li><a href="contributions.html" aria-label="Scientific Contributions">Contributions</a></li>
                     <li><a href="#install" aria-label="Installation Instructions">Install</a></li>
                 </ul>
                 <div class="dropdown-menu">
                     <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">&#9776;</button>
                     <div class="dropdown-content" role="menu" aria-hidden="true" data-dropdown-menu>
-                        <a href="#problem-statement" role="menuitem" aria-label="Problem Statement">Problem
+                        <a href="problem.html" role="menuitem" aria-label="Problem Statement">Problem
                             Statement</a>
-                        <a href="#project-objective" role="menuitem" aria-label="Project Objective">Project
-                            Objective</a>
-                        <a href="#methodology" role="menuitem" aria-label="Methodology">Methodology</a>
-                        <a href="#scientific-significance" role="menuitem"
-                            aria-label="Scientific Significance">Scientific Significance</a>
+                        <a href="objectives.html" role="menuitem" aria-label="Project Objective">Project
+                            Objectives</a>
+                        <a href="methodology.html" role="menuitem" aria-label="Methodology">Methodology</a>
+                        <a href="contributions.html" role="menuitem"
+                            aria-label="Scientific Contributions">Contributions</a>
                         <a href="#install" role="menuitem" aria-label="Installation Instructions">Install</a>
                     </div>
                 </div>
@@ -50,92 +51,49 @@
         <img src="https://github.com/doguilmak/InferenceVision/raw/main/assets/Inference%20Vision%20Cover.png"
             alt="Hero image showcasing InferenceVision" role="img">
     </section>
-    <section id="problem-statement" class="content-section" aria-labelledby="problem-statement-heading">
-        <div class="container">
-            <div class="content-left">
-                <h2 id="problem-statement-heading">Problem Statement</h2>
+    <section class="grid-container" aria-label="Key Sections">
+        <div id="problem-statement" class="grid-item" aria-labelledby="problem-statement-heading">
+            <h2 id="problem-statement-heading">Problem Statement</h2>
+            <div class="image-container">
+                <img src="cover1.png" alt="Problem Statement Image" class="grid-image">
             </div>
-            <div class="content-right">
-                <p>Traditional methods of geospatial analysis often rely on manual identification and mapping of objects
-                    within geographical regions. However, these methods are time-consuming, labor-intensive, and prone
-                    to errors. Moreover, they may lack the scalability required for large-scale analyses. Therefore,
-                    there is a need for automated solutions that can accurately detect and locate objects within
-                    geographic areas, enabling efficient and scalable geospatial analysis.</p>
-            </div>
+            <p class="grid-description">Traditional geospatial analysis is slow, labor-intensive, and prone to errors
+                due to manual mapping. Automated solutions are needed to enable faster, more accurate, and scalable
+                analysis of geographic data. Explore more to discover how automation is transforming geospatial
+                analysis.</p>
+            <a href="problem.html" class="grid-link">Learn more</a>
         </div>
-    </section>
-    <section id="project-objective" class="content-section" aria-labelledby="project-objective-heading">
-        <div class="container">
-            <div class="content-left">
-                <h2 id="project-objective-heading">Project Objective</h2>
+        <div id="project-objective" class="grid-item" aria-labelledby="project-objective-heading">
+            <h2 id="project-objective-heading">Project Objectives</h2>
+            <div class="image-container">
+                <img src="cover2.png" alt="Project Objective Image" class="grid-image">
             </div>
-            <div class="content-right">
-                <p>Our project addresses significant challenges through the development of an automated system. This
-                    system combines advanced object detection algorithms with precise geographic coordinate
-                    calculations. The integration of these components aims to achieve several key objectives:</p>
-
-                <br>
-
-                <p><b>Firstly</b>, leveraging state-of-the-art object detection algorithms like YOLO (You Only Look
-                    Once), our
-                    system automatically identifies and locates objects within satellite or aerial imagery.</p>
-
-                <p><b>Secondly</b>, we are developing algorithms to accurately calculate the geographic coordinates
-                    (latitude
-                    and longitude) of detected objects in relation to a specified bounding polygon.</p>
-
-                <p><b>Lastly</b>, integrating the results of object detection with calculated geographic coordinates
-                    forms a
-                    comprehensive geospatial dataset. This dataset allows for the visualization of detected objects and
-                    their precise geographic locations on maps. Such visual representations facilitate further analysis
-                    and interpretation of the data.</p>
-
-                <br>
-
-                <p><b>This approach not only streamlines the process of object identification and geographic referencing
-                        but also enhances the capability to derive insights from complex spatial data.</b></p>
-
-            </div>
+            <p class="grid-description">Our project automates object detection and geographic coordinate calculations,
+                using algorithms like YOLO to improve accuracy and scalability. This approach enhances the speed and
+                efficiency of geospatial analysis. Explore more to see how it transforms spatial data analysis.</p>
+            <a href="objectives.html" class="grid-link">Discover more</a>
         </div>
-    </section>
-    <section id="methodology" class="content-section" aria-labelledby="methodology-heading">
-        <div class="container">
-            <div class="content-left">
-                <h2 id="methodology-heading">Methodology</h2>
-            </div>
-            <div class="content-right">
-                <p>In this section, we outline the methodology employed for deriving geographic coordinates from input
-                    data
-                    within the InferenceVision framework. This methodological approach combines advanced techniques in
-                    satellite
-                    image analysis, object detection, and geographic coordinate calculation to enable precise geospatial
-                    analysis and visualization.</p>
 
-                <img src="https://github.com/doguilmak/InferenceVision/raw/main/assets/Inference%20Vision%20Intro.png"
-                    alt="Diagram illustrating the methodology" role="img">
-
+        <div id="methodology" class="grid-item" aria-labelledby="methodology-heading">
+            <h2 id="methodology-heading">Methodology</h2>
+            <div class="image-container">
+                <img src="cover3.png" alt="Methodology Image" class="grid-image">
             </div>
+            <p class="grid-description">This methodology automates the extraction of geographic coordinates from
+                satellite images, using advanced transformations and object detection. It enables accurate, scalable
+                geospatial analysis. Explore more to learn how this enhances spatial data processing.</p>
+            <a href="methodology.html" class="grid-link">Explore methodology</a>
         </div>
-    </section>
-    <section id="scientific-significance" class="content-section" aria-labelledby="scientific-significance-heading">
-        <div class="container">
-            <div class="content-left">
-                <h2 id="scientific-significance-heading">Scientific Significance</h2>
+
+        <div id="scientific-contributions" class="grid-item" aria-labelledby="scientific-contributions-heading">
+            <h2 id="scientific-contributions-heading">Contributions</h2>
+            <div class="image-container">
+                <img src="cover4.png" alt="Scientific Contributions Image" class="grid-image">
             </div>
-            <div class="content-right">
-                <p><strong>Automation and Efficiency:</strong> By automating the process of object detection and
-                    geographic coordinate calculation, our system significantly reduces the time and effort required for
-                    geospatial analysis, thereby enhancing efficiency and scalability.</p>
-                <hr>
-                <p><strong>Accuracy and Precision:</strong> Through the integration of advanced algorithms, our system
-                    ensures high accuracy and precision in object detection and geographic coordinate calculation,
-                    leading to reliable and trustworthy results.</p>
-                <hr>
-                <p><strong>Versatility and Adaptability:</strong> The developed system is versatile and adaptable to
-                    various applications, including environmental monitoring, urban planning, agriculture, and disaster
-                    response. It provides researchers and practitioners with a powerful tool for analyzing geospatial
-                    data in diverse contexts.</p>
-            </div>
+            <p class="grid-description">This project automates object detection and geographic coordinate calculation,
+                improving efficiency, accuracy, and scalability. It is versatile, supporting applications in various
+                fields. Explore more to see how this advances geospatial research.</p>
+            <a href="contributions.html" class="grid-link">Read more</a>
         </div>
     </section>
     <section id="install" class="content-section" aria-labelledby="install-heading">
@@ -183,10 +141,16 @@
         </div>
     </section>
     <footer role="contentinfo">
-        <div class="footer-links">
-            <a href="https://github.com/doguilmak/InferenceVision" target="_blank" aria-label="GitHub Repository"><i
-                    class="fab fa-github"></i>GitHub</a>
-            <a href="mailto:doguilmak@gmail.com" aria-label="Contact Email"><i class="fas fa-envelope"></i>Email</a>
+        <div class="footer-container">
+            <p class="footer-text">© 2025 InferenceVision. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://github.com/doguilmak/InferenceVision" target="_blank" aria-label="GitHub Repository">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="mailto:doguilmak@gmail.com" aria-label="Contact Email">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+            </div>
         </div>
     </footer>
 </body>
