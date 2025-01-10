@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Provide geographical coordinates from bounding boxes.">
+    <meta name="keywords" content="Object detection, Deep Learning, YOLO, Ultralytics, Rasterio, Python">
+    <meta name="author" content="Doğu İlmak">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InferenceVision</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script defer src="scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.12.1/polyfill.min.js"></script>
+</head>
+
+<body>
+    <header role="banner">
+        <div class="container">
+            <div class="logo" role="img" aria-label="InferenceVision Logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <h2 style="color: #e29d84;">InferenceVision</h2>
+                </a>
+            </div>
+            <nav role="navigation">
+                <ul id="navbar" aria-label="Main Navigation">
+                    <li><a href="problem.html" aria-label="Problem Statement">Problem Statement</a></li>
+                    <li><a href="objectives.html" aria-label="Project Objective">Project Objectives</a></li>
+                    <li><a href="methodology.html" aria-label="Methodology">Methodology</a></li>
+                    <li><a href="contributions.html" aria-label="Scientific Contributions">Contributions</a></li>
+                </ul>
+                <div class="dropdown-menu">
+                    <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">&#9776;</button>
+                    <div class="dropdown-content" role="menu" aria-hidden="true" data-dropdown-menu>
+                        <a href="problem.html" role="menuitem" aria-label="Problem Statement">Problem
+                            Statement</a>
+                        <a href="objectives.html" role="menuitem" aria-label="Project Objective">Project
+                            Objectives</a>
+                        <a href="methodology.html" role="menuitem" aria-label="Methodology">Methodology</a>
+                        <a href="contributions.html" role="menuitem"
+                            aria-label="Scientific Contributions">Contributions</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section class="hero" aria-label="Hero Section">
+        <img src="https://github.com/doguilmak/InferenceVision/raw/main/assets/Inference%20Vision%20Cover.png"
+            alt="Hero image showcasing InferenceVision" role="img">
+    </section>
+    <section id="methodology" class="content-section" aria-labelledby="methodology-heading">
+        <div class="container">
+            <div class="content-left">
+                <h2 id="methodology-heading">Methodology</h2>
+            </div>
+            <div class="content-right">
+                <p>
+                    In this section, we outline the methodology employed for deriving geographic coordinates from input
+                    data within the InferenceVision framework. This methodological approach combines advanced techniques
+                    in
+                    satellite image analysis, object detection, and geographic coordinate calculation to enable precise
+                    geospatial
+                    analysis and visualization. The methodology consists of three key stages:
+                </p>
+
+                <img src="methodology.png" alt="Diagram illustrating the methodology" role="img">
+                <h4>1. Transform VHR Satellite Image Coordinates to WGS 84 (EPSG:4326)</h4>
+                <p>
+                    The target Coordinate Reference System (CRS) is WGS 84, representing a geographic coordinate system.
+                    Converting to this CRS standardizes the data. We use Nearest Neighbor interpolation, which can
+                    result
+                    in a blocky appearance. Transformed coordinates are precise to 9 decimal places (as default). The
+                    transformation
+                    is
+                    expressed as:
+                </p>
+                <p style="text-align: center;">
+                    G<sub>EPSG:4326</sub> = transform(G<sub>dataset</sub>, CRS<sub>dataset</sub>)
+                </p>
+                <br>
+                <p>
+                    Then, we extract polygon coordinates, defining the geographical extent with top-left (TL) and
+                    bottom-right (BR) corners as reference points for computing the geographic coordinates of normalized
+                    centers.
+                </p>
+                <br>
+                <h4>2. Calculate Normalized Centers</h4>
+                <p>
+                    The center coordinates of detected objects are derived from the bounding boxes surrounding them.
+                    These bounding boxes are defined by the edge coordinates, specifically the minimum and maximum
+                    values for both the x and y axes: <em>x<sub>min</sub>, y<sub>min</sub></em> (the bottom-left corner)
+                    and <em>x<sub>max</sub>, y<sub>max</sub></em> (the top-right corner). The center of each object is
+                    then calculated as the midpoint between these edge coordinates, providing the precise geographic
+                    location for each detected object.
+                </p>
+
+                <p style="text-align: center;">
+                    (x<sub>center</sub>, y<sub>center</sub>) = (x<sub>min</sub> + x<sub>max</sub>) / 2, (y<sub>min</sub>
+                    + y<sub>max</sub>) / 2
+                </p>
+                <br>
+                <p>
+                    The centroids of bounding boxes are then normalized to convert pixel coordinates into a standard
+                    format:
+                </p>
+                <p style="text-align: center;">
+                    N<sub>x</sub> = x<sub>center</sub> / W
+                </p>
+                <p style="text-align: center;">
+                    N<sub>y</sub> = y<sub>center</sub> / H
+                </p>
+                <p>
+                    Where:
+                <ul>
+                    <li><b>N<sub>x</sub></b> and <b>N<sub>y</sub></b>: Normalized pixel coordinates.</li>
+                    <li><b>W</b> and <b>H</b>: Total width and height of the raster image.</li>
+                </ul>
+                </p>
+                <br>
+                <h4>3. Calculate Geographic Coordinates</h4>
+                <p>
+                    In this final step, geographic coordinates are determined by mapping the normalized center
+                    coordinates and the corner coordinates of the extracted polygon. This process involves translating
+                    the geometric data from image space to real-world geographic coordinates, ensuring accurate
+                    georeferencing of the detected objects.
+                </p>
+
+                <p style="text-align: center;">
+                    lat = lat<sub>TL</sub> + (lat<sub>BR</sub> - lat<sub>TL</sub>) × N<sub>x</sub>
+                    <br>
+                    lon = lon<sub>TL</sub> + (lon<sub>BR</sub> - lon<sub>TL</sub>) × N<sub>y</sub>
+                </p>
+                <p>
+                    Where:
+                <ul>
+                    <li><b>lat</b> and <b>lon</b>: Latitude and longitude of the detected object.</li>
+                    <li><b>N<sub>x</sub></b> and <b>N<sub>y</sub></b>: Normalized center coordinates.</li>
+                    <li><b>lat<sub>TL</sub></b>, <b>lon<sub>TL</sub></b>, <b>lat<sub>BR</sub></b>,
+                        <b>lon<sub>BR</sub></b>: Corner coordinates of the polygon.
+                    </li>
+                </ul>
+                </p>
+                <br>
+                <p>
+                    The models used for object detection in this framework are built using the
+                    <strong>Ultralytics</strong> library, which
+                    provides state-of-the-art implementations for training and deploying deep learning models, such as
+                    YOLO (You Only
+                    Look Once). By leveraging the Ultralytics library, we ensure that the models are optimized for high
+                    accuracy and
+                    performance, making them well-suited for processing high-resolution satellite images and detecting
+                    objects within
+                    complex geospatial data. <b>The input image must have a CRS set to ensure accurate geographic
+                        coordinate
+                        calculation.</b>
+                </p>
+                <br>
+                <hr>
+                <br>
+                <p>
+                    For detailed instructions on how to use this system within a Jupyter Notebook environment, please
+                    refer to the <a
+                        href="https://github.com/doguilmak/InferenceVision/blob/main/usage/InferenceVision_Usage.ipynb"
+                        target="_blank" style="text-decoration: none; color: #e29d84; font-weight: bold;">usage
+                        guide</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+    <footer role="contentinfo">
+        <div class="footer-container">
+            <p class="footer-text">© 2025 InferenceVision. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://github.com/doguilmak/InferenceVision" target="_blank" aria-label="GitHub Repository">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="mailto:doguilmak@gmail.com" aria-label="Contact Email">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
