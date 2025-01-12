@@ -11,6 +11,10 @@ body {
     background-color: #fff;
 }
 
+p {
+    text-align: justify;
+}
+
 /* Header with blurry background */
 header {
     position: fixed;
