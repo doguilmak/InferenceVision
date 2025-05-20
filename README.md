@@ -12,6 +12,10 @@ Stay tuned for regular updates on our progress and new developments:
 
 <br>
 
+<b>May 2025</b>
+<ol>
+	<li>The fine-tuned InferenceVision Q&A LLM model is now available on <a href="https://huggingface.co/doguilmak/inferencevision-llm">HuggingFace</a>.</li>
+</ol>
 <b>December 2024</b>
 <ol>
 	<li>Introduced the advanced language model for technical Q&A with InferenceVision!</li>
