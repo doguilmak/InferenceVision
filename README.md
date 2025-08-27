@@ -12,10 +12,16 @@ Stay tuned for regular updates on our progress and new developments:
 
 <br>
 
+<b>August 2025</b>
+<ol>
+	<li>The fine-tuned GPT-Neo-1.3B InferenceVision Q&A LLM model is now available on <a href="https://huggingface.co/doguilmak/inferencevision-gpt-neo-1.3B">HuggingFace</a>.</li>
+</ol>
+
 <b>May 2025</b>
 <ol>
-	<li>The fine-tuned InferenceVision Q&A LLM model is now available on <a href="https://huggingface.co/doguilmak/inferencevision-llm">HuggingFace</a>.</li>
+	<li>The fine-tuned pythia-1B InferenceVision Q&A LLM model is now available on <a href="https://huggingface.co/doguilmak/inferencevision-pythia-1B">HuggingFace</a>.</li>
 </ol>
+
 <b>December 2024</b>
 <ol>
 	<li>Introduced the advanced language model for technical Q&A with InferenceVision!</li>
@@ -224,3 +230,4 @@ For a detailed exploration of related work, refer to the research article availa
       keywords = {YOLO; Buildings; Urban areas; Earthquakes; Geoscience and remote sensing; Satellite images; Sensors; Geospatial analysis; Context modeling; Deep Learning; Object Detection; Very High-Resolution Satellite Imagery; Remote Sensing; Earthquake Damage Assessment},
       doi = {10.1109/IGARSS53475.2024.10642920}
     }
+
