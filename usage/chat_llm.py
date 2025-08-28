@@ -2,11 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Unified helper for InferenceVision LLMs.
-
-Functions:
-  - load_model(model_name) -> loads one of your HuggingFace models
-  - ask(question, short=False, max_new_tokens=128, do_sample=False) -> answer string
-  - loop() -> interactive REPL
 """
 
 import torch
@@ -23,12 +18,10 @@ _state = {
 
 MODEL_MAP = {
     "inferencevision-pythia-1B": {
-        "repo": "doguilmak/inferencevision-pythia-1B", # UPDATE THE NAME
-        "subfolder": "llm",
+        "repo": "doguilmak/inferencevision-pythia-1B",
     },
     "inferencevision-gpt-neo-1.3B": {
         "repo": "doguilmak/inferencevision-gpt-neo-1.3B",
-        "subfolder": "llm",
     },
 }
 
@@ -46,17 +39,14 @@ def load_model(model_name: str):
 
         info = MODEL_MAP[model_name]
         repo_id = info["repo"]
-        subfolder = info.get("subfolder")
 
-        print(f"[chat_llm] Loading model '{model_name}' from {repo_id} (subfolder={subfolder}) ...")
+        print(f"[chat_llm] Loading model '{model_name}' from {repo_id} ...")
 
-        # Force token=None so no HF_TOKEN warning
-        tokenizer = AutoTokenizer.from_pretrained(repo_id, subfolder=subfolder, token=None)
+        tokenizer = AutoTokenizer.from_pretrained(repo_id, token=None)
         model = AutoModelForCausalLM.from_pretrained(
-            repo_id, subfolder=subfolder, trust_remote_code=True, token=None
+            repo_id, trust_remote_code=True, token=None
         )
 
-        # Ensure pad token exists
         if tokenizer.pad_token is None and tokenizer.eos_token is not None:
             tokenizer.pad_token = tokenizer.eos_token
             model.config.pad_token_id = tokenizer.eos_token_id
