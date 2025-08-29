@@ -192,14 +192,14 @@ $$ lon = lon_{TL} + (lon_{BR} - lon_{TL}) \times N_{y} $$
 
 ## **Advanced Language Models for InferenceVision**
 
-To enhance your experience with **InferenceVision**, we've integrated two advanced language models—**InferenceVision-Pythia-1B** and **InferenceVision-GPTNeo-1.3B**—that deliver intelligent, context-aware support for technical topics. These models are designed to assist with questions related to geospatial analysis, object detection, and geographic coordinate calculations, helping users understand the technical foundation of the platform.
+To enhance your experience with **InferenceVision**, we've integrated two advanced language models—[**InferenceVision-Pythia-1B**](https://huggingface.co/doguilmak/inferencevision-pythia-1B) and [**InferenceVision-GPTNeo-1.3B**](https://huggingface.co/doguilmak/inferencevision-gpt-neo-1.3B)—that deliver intelligent, context-aware support for technical topics. These models are designed to assist with questions related to geospatial analysis, object detection, and geographic coordinate calculations, helping users understand the technical foundation of the platform.
 
 ### **Model Overview**
 
-#### **InferenceVision-Pythia-1B**
+#### [**InferenceVision-Pythia-1B**](https://huggingface.co/doguilmak/inferencevision-pythia-1B)
 Based on the **EleutherAI/pythia-1b** architecture, this high-capacity model is fine-tuned specifically for the InferenceVision domain. It excels at generating detailed responses to complex questions involving object detection, spatial data handling, and coordinate systems. The model’s training was tailored to domain-specific documentation and technical prompts, ensuring precise and relevant answers.
 
-#### **InferenceVision-GPTNeo-1.3B**
+#### [**InferenceVision-GPTNeo-1.3B**](https://huggingface.co/doguilmak/inferencevision-gpt-neo-1.3B)
 Built on the **EleutherAI/gpt-neo-1.3B** model, this transformer-based language model has been fine-tuned using a structured Q&A dataset customized for InferenceVision. It offers highly accurate responses related to geospatial workflows, coordinate transformations, and detection pipelines, making it a reliable assistant for navigating technical content.
 
 ### **Key Features:**
@@ -234,5 +234,6 @@ For a detailed exploration of related work, refer to the research article availa
       keywords = {YOLO; Buildings; Urban areas; Earthquakes; Geoscience and remote sensing; Satellite images; Sensors; Geospatial analysis; Context modeling; Deep Learning; Object Detection; Very High-Resolution Satellite Imagery; Remote Sensing; Earthquake Damage Assessment},
       doi = {10.1109/IGARSS53475.2024.10642920}
     }
+
 
 
