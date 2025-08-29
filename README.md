@@ -190,21 +190,25 @@ $$ lon = lon_{TL} + (lon_{BR} - lon_{TL}) \times N_{y} $$
 
 <br>
 
-## **Advanced Language Model for InferenceVision**
+## **Advanced Language Models for InferenceVision**
 
-To enhance your experience with **InferenceVision**, we've integrated an advanced language model based on **EleutherAI/pythia-1b**. This model is designed to help users understand the technical background of the project, offering detailed Q&A support on topics like geospatial analysis, object detection, and geographic coordinate calculation.
+To enhance your experience with **InferenceVision**, we've integrated two advanced language models—**InferenceVision-Pythia-1B** and **InferenceVision-GPTNeo-1.3B**—that deliver intelligent, context-aware support for technical topics. These models are designed to assist with questions related to geospatial analysis, object detection, and geographic coordinate calculations, helping users understand the technical foundation of the platform.
 
 ### **Model Overview**
 
-**EleutherAI/pythia-1b** is a powerful language model with a large number of parameters, enabling it to generate complex, context-aware responses. It's fine-tuned for answering technical questions about **InferenceVision** and related topics, making it a valuable tool for users looking for deeper insights into the project's methodology.
+#### **InferenceVision-Pythia-1B**
+Based on the **EleutherAI/pythia-1b** architecture, this high-capacity model is fine-tuned specifically for the InferenceVision domain. It excels at generating detailed responses to complex questions involving object detection, spatial data handling, and coordinate systems. The model’s training was tailored to domain-specific documentation and technical prompts, ensuring precise and relevant answers.
+
+#### **InferenceVision-GPTNeo-1.3B**
+Built on the **EleutherAI/gpt-neo-1.3B** model, this transformer-based language model has been fine-tuned using a structured Q&A dataset customized for InferenceVision. It offers highly accurate responses related to geospatial workflows, coordinate transformations, and detection pipelines, making it a reliable assistant for navigating technical content.
 
 ### **Key Features:**
+- **Domain-Specific Tuning**: Both models are optimized using project-specific content to ensure high relevance and contextual precision.
+- **Large-Scale Performance**: With 1B+ parameters, these models handle complex language tasks and detailed technical queries.
+- **Q&A Optimization**: Structured to deliver targeted support for object detection, spatial analysis, and platform workflows.
+- **Context-Aware Responses**: Capable of understanding and responding to intricate prompts across geospatial and AI domains.
 
-- **Large Capacity**: Handles complex text patterns for detailed, high-quality responses.
-- **Q&A Focus**: Tailored to answer questions about object detection and geospatial analysis.
-- **Efficient**: Optimized for large-scale data processing and intricate language tasks.
-
-For a hands-on guide on fine-tuning and using this model with **InferenceVision**, check out the [interactive notebook](https://github.com/doguilmak/InferenceVision/blob/main/usage/InferenveVision_LLM_QA.ipynb).
+For a hands-on guide on fine-tuning and using these models with **InferenceVision**, check out the [interactive notebook](https://github.com/doguilmak/InferenceVision/blob/main/usage/InferenceVision_LLM_QA.ipynb).
 
 <br>
 
@@ -230,4 +234,5 @@ For a detailed exploration of related work, refer to the research article availa
       keywords = {YOLO; Buildings; Urban areas; Earthquakes; Geoscience and remote sensing; Satellite images; Sensors; Geospatial analysis; Context modeling; Deep Learning; Object Detection; Very High-Resolution Satellite Imagery; Remote Sensing; Earthquake Damage Assessment},
       doi = {10.1109/IGARSS53475.2024.10642920}
     }
+
 
