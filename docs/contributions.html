@@ -3,158 +3,177 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Provide geographical coordinates from bounding boxes.">
-    <meta name="keywords" content="Object detection, Deep Learning, YOLO, Ultralytics, Rasterio, Python">
+    <meta name="description" content="Scientific contributions of the InferenceVision project.">
+    <meta name="keywords" content="Geospatial Analysis, Object Detection, Scientific Contributions, AI">
     <meta name="author" content="Doğu İlmak">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InferenceVision</title>
+
+    <title>Contributions | InferenceVision</title>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script defer src="scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.12.1/polyfill.min.js"></script>
 </head>
 
 <body>
-    <header role="banner">
-        <div class="container">
-            <div class="logo" role="img" aria-label="InferenceVision Logo">
-                <a href="index.html" style="text-decoration: none; color: inherit;">
-                    <h2 style="color: #e29d84;">InferenceVision</h2>
-                </a>
-            </div>
-            <nav role="navigation">
-                <ul id="navbar" aria-label="Main Navigation">
-                    <li><a href="problem.html" aria-label="Problem Statement">Problem Statement</a></li>
-                    <li><a href="objectives.html" aria-label="Project Objective">Project Objectives</a></li>
-                    <li><a href="methodology.html" aria-label="Methodology">Methodology</a></li>
-                    <li><a href="contributions.html" aria-label="Scientific Contributions">Contributions</a></li>
+    <header id="header">
+        <div class="header-container">
+            <a href="index.html" style="text-decoration: none;">
+                <div class="logo">InferenceVision</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="problem.html">Problem</a></li>
+                    <li><a href="objectives.html">Objectives</a></li>
+                    <li><a href="methodology.html">Methodology</a></li>
+                    <li><a href="contributions.html" class="active">Contributions</a></li>
+                    <li><a href="index.html#install">Install</a></li>
                 </ul>
-                <div class="dropdown-menu">
-                    <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">&#9776;</button>
-                    <div class="dropdown-content" role="menu" aria-hidden="true" data-dropdown-menu>
-                        <a href="problem.html" role="menuitem" aria-label="Problem Statement">Problem
-                            Statement</a>
-                        <a href="objectives.html" role="menuitem" aria-label="Project Objective">Project
-                            Objectives</a>
-                        <a href="methodology.html" role="menuitem" aria-label="Methodology">Methodology</a>
-                        <a href="contributions.html" role="menuitem"
-                            aria-label="Scientific Contributions">Contributions</a>
-                    </div>
-                </div>
             </nav>
+            <button class="mobile-menu" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
-    <section class="hero" aria-label="Hero Section">
-        <img src="https://github.com/doguilmak/InferenceVision/raw/main/assets/Inference%20Vision%20Cover.png"
-            alt="Hero image showcasing InferenceVision" role="img">
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>Scientific Contributions</h1>
+            <p>Advancing geospatial intelligence through automation, precision, and AI-driven analysis</p>
+        </div>
     </section>
-    <section id="scientific-contributions" class="content-section" aria-labelledby="scientific-contributions-heading">
-        <div class="container">
-            <div class="content-left">
-                <h2 id="scientific-contributions-heading">Scientific Contributions</h2>
-            </div>
-            <div class="content-right">
+
+    <section class="content-section">
+        <div class="content-container-full">
+
+            <div class="content-card fade-in">
+
                 <p>
-                    This project addresses key challenges in geospatial analysis by automating object detection and
-                    geographic
-                    coordinate calculations. The scientific significance of this work lies in its ability to enhance
-                    efficiency,
-                    accuracy, and adaptability in processing geospatial data, enabling diverse applications across
-                    multiple domains. Below, we highlight the three primary contributions of this project:
+                    The <strong>InferenceVision</strong> project contributes to geospatial science by integrating
+                    automated object detection with precise coordinate computation. These contributions enhance
+                    the scalability, accuracy, and usability of geospatial datasets for research, planning, and
+                    operational decision-making.
                 </p>
-                <br>
+
+                <div class="objective-box">
+                    <div class="objective-number">1</div>
+                    <div class="objective-content">
+                        <h4>Automation & High-Throughput Analysis</h4>
+                        <p>
+                            By leveraging deep learning object detection models such as YOLO via the Ultralytics
+                            library,
+                            InferenceVision automatically identifies and localizes objects in high-resolution satellite
+                            and aerial imagery. This reduces human workload, accelerates data processing pipelines,
+                            and allows for real-time geospatial intelligence generation.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-number">2</div>
+                    <div class="objective-content">
+                        <h4>Geospatial Accuracy & Precision</h4>
+                        <p>
+                            The framework converts pixel-based detections into WGS 84 geographic coordinates,
+                            ensuring centimeter-to-meter level accuracy. By integrating spatial transformations,
+                            bounding box centroids, and polygon corner referencing, the system produces
+                            reliable geolocation data suitable for urban planning, environmental monitoring,
+                            and disaster response applications.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="objective-box">
+                    <div class="objective-number">3</div>
+                    <div class="objective-content">
+                        <h4>Domain-Specific Adaptability</h4>
+                        <p>
+                            InferenceVision is designed to support multiple application domains, including
+                            precision agriculture, smart city management, flood monitoring, and emergency logistics.
+                            Its modular architecture allows easy integration of new object classes, coordinate systems,
+                            and AI models tailored to specific datasets and operational needs.
+                        </p>
+                    </div>
+                </div>
+
+                <h3>Integration with Large Language Models</h3>
                 <p>
-                    <strong>Automation and Efficiency:</strong>
-                    By automating the process of object detection and geographic coordinate calculation, our system
-                    significantly
-                    reduces the time and effort required for geospatial analysis. This automation enhances scalability,
-                    enabling
-                    the efficient processing of large-scale datasets and high-resolution satellite imagery.
+                    To improve interpretability and assist technical users, InferenceVision integrates fine-tuned
+                    language models for domain-specific guidance:
                 </p>
-                <p>
-                    <strong>Accuracy and Precision:</strong>
-                    Through the integration of advanced algorithms, our system ensures high accuracy and precision in
-                    object detection
-                    and geographic coordinate calculation. This reliability is critical for applications where errors
-                    can have significant
-                    consequences, such as disaster response and urban planning.
-                </p>
-                <p>
-                    <strong>Versatility and Adaptability:</strong>
-                    The developed system is versatile and adaptable to a wide range of applications, including
-                    environmental monitoring,
-                    agriculture, disaster response, and urban planning. It provides researchers and practitioners with a
-                    powerful tool for
-                    analyzing geospatial data across diverse contexts.
-                </p>
-                <br>
-                <h2 id="advanced-language-model">Advanced Language Models for InferenceVision</h2>
-                <p>
-                    To enhance your experience with <strong>InferenceVision</strong>, we've integrated two advanced
-                    language models
-                    that provide intelligent, context-aware support for technical topics. These models are designed to
-                    answer questions
-                    related to geospatial analysis, object detection, and geographic coordinate calculations, helping
-                    users better
-                    understand the inner workings of the platform.
-                </p>
-                <br>
-                <h3>Pythia-1B Integration</h3>
-                <p>
-                    <strong>InferenceVision-Pythia-1B</strong> is based on the <strong>EleutherAI/pythia-1b</strong>
-                    architecture, a
-                    powerful language model with a large number of parameters capable of generating detailed,
-                    high-quality responses.
-                    This model has been fine-tuned specifically for the InferenceVision domain, focusing on answering
-                    technical questions
-                    in areas such as object detection, spatial data handling, and coordinate systems. It provides robust
-                    performance in
-                    complex text generation tasks and is optimized for large-scale language inference. The fine-tuning
-                    process targeted
-                    domain-specific documentation and technical prompts to ensure relevance and precision in responses.
-                </p>
-                <br>
-                <h3>GPT-Neo 1.3B Integration</h3>
-                <p>
-                    <strong>InferenceVision-GPTNeo-1.3B</strong> is built on the
-                    <strong>EleutherAI/gpt-neo-1.3B</strong> model, a
-                    transformer-based language model with 1.3 billion parameters. Fine-tuned on a custom InferenceVision
-                    QA dataset,
-                    this model uses a structured Q&amp;A format to deliver highly relevant answers to user queries. Its
-                    training focused
-                    on project-specific content to maximize accuracy when responding to questions about geospatial
-                    workflows,
-                    coordinate transformations, and detection pipelines. Evaluation metrics demonstrate strong
-                    performance in both
-                    linguistic quality and contextual precision, making it a reliable assistant for navigating the
-                    technical
-                    documentation and usage of the InferenceVision platform.
-                </p>
-                <br>
-                <hr>
-                <br>
-                <p>
-                    For a hands-on guide on fine-tuning and using this model with <strong>InferenceVision</strong>,
-                    check out the <a
+
+                <div class="highlight-box">
+                    <i class="fas fa-brain"></i>
+                    <div>
+                        <h4>Pythia-1B Model</h4>
+                        <p>
+                            <strong>InferenceVision-Pythia-1B</strong> provides detailed explanations and step-by-step
+                            guidance for object detection pipelines, coordinate calculations, and geospatial data
+                            interpretation. It is trained on domain-specific documentation to ensure high fidelity
+                            technical answers.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <i class="fas fa-robot"></i>
+                    <div>
+                        <h4>GPT-Neo 1.3B Model</h4>
+                        <p>
+                            <strong>InferenceVision-GPTNeo-1.3B</strong> excels in structured Q&A, offering
+                            clarifications on detection workflows, polygon mapping, and coordinate transformations.
+                            It has been fine-tuned using a curated set of technical and geospatial datasets.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cta-box">
+                    <h4>Explore the Interactive LLM Notebook</h4>
+                    <p>
+                        Dive deeper into how InferenceVision integrates language models for geospatial Q&A,
+                        including usage examples, model fine-tuning steps, and interactive queries.
+                    </p>
+                    <a class="btn-primary"
                         href="https://github.com/doguilmak/InferenceVision/blob/main/usage/InferenceVision_LLM_QA.ipynb"
-                        target="_blank" style="text-decoration: none; color: #e29d84; font-weight: bold;">interactive
-                        notebook</a>.
-                </p>
+                        target="_blank">
+                        Open Notebook <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
             </div>
         </div>
     </section>
-    <footer role="contentinfo">
+
+    <footer>
         <div class="footer-container">
-            <p class="footer-text">© 2025 InferenceVision. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="https://github.com/doguilmak/InferenceVision" target="_blank" aria-label="GitHub Repository">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="mailto:doguilmak@gmail.com" aria-label="Contact Email">
-                    <i class="fas fa-envelope"></i> Email
-                </a>
+            <div class="footer-section">
+                <h3>InferenceVision</h3>
+                <p>Advanced geospatial analysis through automated object detection and coordinate calculations.</p>
             </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="problem.html"><i class="fas fa-angle-right"></i> Problem Statement</a>
+                    <a href="objectives.html"><i class="fas fa-angle-right"></i> Objectives</a>
+                    <a href="methodology.html"><i class="fas fa-angle-right"></i> Methodology</a>
+                    <a href="contributions.html"><i class="fas fa-angle-right"></i> Contributions</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="footer-links">
+                    <a href="https://github.com/doguilmak/InferenceVision" target="_blank">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
+                    <a href="mailto:doguilmak@gmail.com">
+                        <i class="fas fa-envelope"></i> Email Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 InferenceVision. All rights reserved.</p>
         </div>
     </footer>
 </body>
