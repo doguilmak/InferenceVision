@@ -1,54 +1,92 @@
-// Function to toggle the dropdown menu
-document.addEventListener('DOMContentLoaded', function () {
-    const dropdownToggle = document.querySelector('.dropdown-toggle');
-    const dropdownContent = document.querySelector('.dropdown-content');
-
-    dropdownToggle.addEventListener('click', function () {
-        const expanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
-        dropdownToggle.setAttribute('aria-expanded', !expanded);
-        dropdownContent.setAttribute('aria-hidden', expanded);
-        dropdownContent.classList.toggle('show');
-    });
-
-    document.querySelector('.dropdown-toggle').addEventListener('click', function() {
-        var dropdownContent = document.querySelector('.dropdown-content');
-        var isExpanded = this.getAttribute('aria-expanded') === 'true';
-        
-        this.setAttribute('aria-expanded', !isExpanded);
-        dropdownContent.setAttribute('aria-hidden', isExpanded);
-    });
+// Header scroll effect
+window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
 });
 
-// Function to copy code to clipboard
-function copyToClipboard(button) {
-    const codeContainer = button.parentElement;
-    const code = codeContainer.querySelector('code').textContent;
+// Copy code functionality
+function copyCode(button) {
+    const codeElement = button.previousElementSibling;
+    const code = codeElement.textContent;
 
     navigator.clipboard.writeText(code).then(() => {
+        const originalText = button.textContent;
+        const originalBg = button.style.background;
+
         button.textContent = 'Copied!';
-        button.setAttribute('aria-live', 'polite');
+        button.style.background = '#4caf50';
+
         setTimeout(() => {
-            button.textContent = 'Copy';
+            button.textContent = originalText;
+            button.style.background = originalBg;
         }, 2000);
     }).catch(err => {
-        console.error('Failed to copy text: ', err);
-        button.textContent = 'Failed';
+        console.error('Failed to copy:', err);
+        button.textContent = 'Failed!';
         setTimeout(() => {
             button.textContent = 'Copy';
         }, 2000);
     });
 }
 
-// Accessibility: Close dropdown menu when clicking outside
-document.addEventListener('click', function (event) {
-    const dropdownContent = document.querySelector('.dropdown-content');
-    const dropdownToggle = document.querySelector('.dropdown-toggle');
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const headerOffset = 100;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-    if (!dropdownToggle.contains(event.target) && !dropdownContent.contains(event.target)) {
-        if (dropdownContent.classList.contains('show')) {
-            dropdownContent.classList.remove('show');
-            dropdownToggle.setAttribute('aria-expanded', 'false');
-            dropdownContent.setAttribute('aria-hidden', 'true');
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
         }
-    }
+    });
+});
+
+// Mobile menu toggle (if you want to add mobile menu functionality)
+const mobileMenuBtn = document.querySelector('.mobile-menu');
+const navUl = document.querySelector('nav ul');
+
+if (mobileMenuBtn && navUl) {
+    mobileMenuBtn.addEventListener('click', () => {
+        navUl.classList.toggle('open');
+    });
+
+    navUl.addEventListener('mouseleave', () => {
+        navUl.classList.remove('open');
+    });
+    document.addEventListener('click', (e) => {
+        if (!navUl.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            navUl.classList.remove('open');
+        }
+    });
+}
+
+// Intersection Observer for fade-in animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Observe elements for animation
+document.addEventListener('DOMContentLoaded', () => {
+    const animateElements = document.querySelectorAll('.grid-item, .content-card, .code-block, .objective-box');
+    animateElements.forEach(el => observer.observe(el));
 });
