@@ -3,184 +3,320 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Provide geographical coordinates from bounding boxes.">
-    <meta name="keywords" content="Object detection, Deep Learning, YOLO, Ultralytics, Rasterio, Python">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="description" content="Methodology of the InferenceVision project.">
+    <meta name="keywords" content="Geospatial Analysis, Object Detection, Satellite Imagery, Challenges, Automation">
     <meta name="author" content="Doğu İlmak">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InferenceVision</title>
+
+    <title>Methodology | InferenceVision</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script defer src="scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.12.1/polyfill.min.js"></script>
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
-    <header role="banner">
-        <div class="container">
-            <div class="logo" role="img" aria-label="InferenceVision Logo">
-                <a href="index.html" style="text-decoration: none; color: inherit;">
-                    <h2 style="color: #e29d84;">InferenceVision</h2>
-                </a>
-            </div>
-            <nav role="navigation">
-                <ul id="navbar" aria-label="Main Navigation">
-                    <li><a href="problem.html" aria-label="Problem Statement">Problem Statement</a></li>
-                    <li><a href="objectives.html" aria-label="Project Objective">Project Objectives</a></li>
-                    <li><a href="methodology.html" aria-label="Methodology">Methodology</a></li>
-                    <li><a href="contributions.html" aria-label="Scientific Contributions">Contributions</a></li>
+    <header id="header">
+        <div class="header-container">
+            <a href="index.html" style="text-decoration: none;">
+                <div class="logo">InferenceVision</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="problem.html">Problem</a></li>
+                    <li><a href="objectives.html">Objectives</a></li>
+                    <li><a href="methodology.html" class="active">Methodology</a></li>
+                    <li><a href="contributions.html">Contributions</a></li>
+                    <li><a href="index.html#install">Install</a></li>
                 </ul>
-                <div class="dropdown-menu">
-                    <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">&#9776;</button>
-                    <div class="dropdown-content" role="menu" aria-hidden="true" data-dropdown-menu>
-                        <a href="problem.html" role="menuitem" aria-label="Problem Statement">Problem
-                            Statement</a>
-                        <a href="objectives.html" role="menuitem" aria-label="Project Objective">Project
-                            Objectives</a>
-                        <a href="methodology.html" role="menuitem" aria-label="Methodology">Methodology</a>
-                        <a href="contributions.html" role="menuitem"
-                            aria-label="Scientific Contributions">Contributions</a>
-                    </div>
-                </div>
             </nav>
+            <button class="mobile-menu" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
-    <section class="hero" aria-label="Hero Section">
-        <img src="https://github.com/doguilmak/InferenceVision/raw/main/assets/Inference%20Vision%20Cover.png"
-            alt="Hero image showcasing InferenceVision" role="img">
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>Methodology</h1>
+            <p>Technical approach to coordinate extraction and object detection</p>
+        </div>
     </section>
-    <section id="methodology" class="content-section" aria-labelledby="methodology-heading">
-        <div class="container">
-            <div class="content-left">
-                <h2 id="methodology-heading">Methodology</h2>
-            </div>
-            <div class="content-right">
+
+    <section class="content-section">
+        <div class="content-container-full">
+            <div class="content-card">
                 <p>
-                    In this section, we outline the methodology employed for deriving geographic coordinates from input
-                    data within the InferenceVision framework. This methodological approach combines advanced techniques
-                    in
-                    satellite image analysis, object detection, and geographic coordinate calculation to enable precise
-                    geospatial
-                    analysis and visualization. The methodology consists of three key stages:
+                    This section presents the methodological framework employed by
+                    <strong>InferenceVision</strong> for transforming object detections obtained from
+                    raster imagery into precise geographic coordinates. The methodology integrates
+                    deep learning–based object detection with geospatial reference system handling and
+                    spatial transformations, enabling reliable conversion from image space to real-world
+                    geographic coordinates.
                 </p>
 
-                <img src="methodology.png" alt="Diagram illustrating the methodology" role="img">
-                <h4>1. Transform VHR Satellite Image Coordinates to WGS 84 (EPSG:4326)</h4>
                 <p>
-                    The target Coordinate Reference System (CRS) is WGS 84, representing a geographic coordinate system.
-                    Converting to this CRS standardizes the data. We use Nearest Neighbor interpolation, which can
-                    result
-                    in a blocky appearance. Transformed coordinates are precise to 9 decimal places (as default). The
-                    transformation
-                    is
-                    expressed as:
-                </p>
-                <p style="text-align: center;">
-                    G<sub>EPSG:4326</sub> = transform(G<sub>dataset</sub>, CRS<sub>dataset</sub>)
-                </p>
-                <br>
-                <p>
-                    Then, we extract polygon coordinates, defining the geographical extent with top-left (TL) and
-                    bottom-right (BR) corners as reference points for computing the geographic coordinates of normalized
-                    centers.
-                </p>
-                <br>
-                <h4>2. Calculate Normalized Centers</h4>
-                <p>
-                    The center coordinates of detected objects are derived from the bounding boxes surrounding them.
-                    These bounding boxes are defined by the edge coordinates, specifically the minimum and maximum
-                    values for both the x and y axes: <em>x<sub>min</sub>, y<sub>min</sub></em> (the bottom-left corner)
-                    and <em>x<sub>max</sub>, y<sub>max</sub></em> (the top-right corner). The center of each object is
-                    then calculated as the midpoint between these edge coordinates, providing the precise geographic
-                    location for each detected object.
+                    The overall workflow is designed to be modular, reproducible, and scalable, allowing
+                    it to operate on very high–resolution (VHR) satellite or aerial imagery. The pipeline
+                    consists of three primary stages: coordinate reference system normalization, object
+                    centroid computation, and geographic coordinate derivation.
                 </p>
 
-                <p style="text-align: center;">
-                    (x<sub>center</sub>, y<sub>center</sub>) = (x<sub>min</sub> + x<sub>max</sub>) / 2, (y<sub>min</sub>
-                    + y<sub>max</sub>) / 2
-                </p>
-                <br>
-                <p>
-                    The centroids of bounding boxes are then normalized to convert pixel coordinates into a standard
-                    format:
-                </p>
-                <p style="text-align: center;">
-                    N<sub>x</sub> = x<sub>center</sub> / W
-                </p>
-                <p style="text-align: center;">
-                    N<sub>y</sub> = y<sub>center</sub> / H
-                </p>
-                <p>
-                    Where:
-                <ul>
-                    <li><b>N<sub>x</sub></b> and <b>N<sub>y</sub></b>: Normalized pixel coordinates.</li>
-                    <li><b>W</b> and <b>H</b>: Total width and height of the raster image.</li>
-                </ul>
-                </p>
-                <br>
-                <h4>3. Calculate Geographic Coordinates</h4>
-                <p>
-                    In this final step, geographic coordinates are determined by mapping the normalized center
-                    coordinates and the corner coordinates of the extracted polygon. This process involves translating
-                    the geometric data from image space to real-world geographic coordinates, ensuring accurate
-                    georeferencing of the detected objects.
-                </p>
+                <div class="methodology-diagram">
+                    <img src="methodology.png" alt="InferenceVision Methodology Workflow Diagram" loading="lazy">
+                </div>
 
-                <p style="text-align: center;">
-                    lat = lat<sub>TL</sub> + (lat<sub>BR</sub> - lat<sub>TL</sub>) × N<sub>x</sub>
-                    <br>
-                    lon = lon<sub>TL</sub> + (lon<sub>BR</sub> - lon<sub>TL</sub>) × N<sub>y</sub>
-                </p>
-                <p>
-                    Where:
-                <ul>
-                    <li><b>lat</b> and <b>lon</b>: Latitude and longitude of the detected object.</li>
-                    <li><b>N<sub>x</sub></b> and <b>N<sub>y</sub></b>: Normalized center coordinates.</li>
-                    <li><b>lat<sub>TL</sub></b>, <b>lon<sub>TL</sub></b>, <b>lat<sub>BR</sub></b>,
-                        <b>lon<sub>BR</sub></b>: Corner coordinates of the polygon.
-                    </li>
-                </ul>
-                </p>
-                <br>
-                <p>
-                    The models used for object detection in this framework are built using the
-                    <strong>Ultralytics</strong> library, which
-                    provides state-of-the-art implementations for training and deploying deep learning models, such as
-                    YOLO (You Only
-                    Look Once). By leveraging the Ultralytics library, we ensure that the models are optimized for high
-                    accuracy and
-                    performance, making them well-suited for processing high-resolution satellite images and detecting
-                    objects within
-                    complex geospatial data. <b>The input image must have a CRS set to ensure accurate geographic
-                        coordinate
-                        calculation.</b>
-                </p>
-                <br>
-                <hr>
-                <br>
-                <p>
-                    For detailed instructions on how to use this system within a Jupyter Notebook environment, please
-                    refer to the <a
-                        href="https://github.com/doguilmak/InferenceVision/blob/main/usage/InferenceVision_Usage.ipynb"
-                        target="_blank" style="text-decoration: none; color: #e29d84; font-weight: bold;">usage
-                        guide</a>.
-                </p>
+                <div class="methodology-step">
+                    <div class="step-header">
+                        <span class="step-number">Step 1</span>
+                        <h3>Coordinate Reference System Normalization (EPSG:4326)</h3>
+                    </div>
+
+                    <div class="step-content">
+                        <p>
+                            InferenceVision requires all spatial data to be represented in a consistent
+                            geographic coordinate reference system. The target CRS is
+                            <strong>WGS 84 (EPSG:4326)</strong>, which expresses locations using latitude
+                            and longitude and is widely adopted in geospatial analysis and web mapping
+                            applications.
+                        </p>
+
+                        <p>
+                            Input raster datasets may originate from various projected or geographic
+                            coordinate systems. These datasets are reprojected into EPSG:4326 using
+                            affine transformations and spatial metadata extracted from the raster.
+                            Nearest Neighbor interpolation is applied during reprojection to preserve
+                            discrete pixel values, which is particularly important for object detection
+                            outputs.
+                        </p>
+
+                        <div class="formula-box">
+                            \[
+                            G_{\text{EPSG:4326}} = \text{transform}\big(G_{\text{dataset}}, CRS_{\text{dataset}}\big)
+                            \]
+                        </div>
+
+                        <p>
+                            After reprojection, the geographic extent of the raster is extracted as a
+                            bounding polygon. The top-left (TL) and bottom-right (BR) corner coordinates
+                            of this polygon serve as spatial reference points for subsequent coordinate
+                            calculations.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="methodology-step">
+                    <div class="step-header">
+                        <span class="step-number">Step 2</span>
+                        <h3>Bounding Box Centroid Computation and Normalization</h3>
+                    </div>
+
+                    <div class="step-content">
+                        <p>
+                            Object detection models produce bounding boxes defined in image space using
+                            pixel coordinates. Each bounding box is represented by its minimum and
+                            maximum extents along the horizontal and vertical axes:
+                            <em>x<sub>min</sub>, y<sub>min</sub></em> and
+                            <em>x<sub>max</sub>, y<sub>max</sub></em>.
+                        </p>
+
+                        <p>
+                            To obtain a single representative point for each detected object, the centroid
+                            of the bounding box is calculated. This centroid provides a stable spatial
+                            reference that minimizes sensitivity to object shape and detection variance.
+                        </p>
+
+                        <p>
+                            The centroid of a bounding box is computed as:
+                        </p>
+
+                        <div class="formula-box">
+                            \[
+                            (x_{\text{center}}, y_{\text{center}}) =
+                            \left(
+                            \frac{x_{\min} + x_{\max}}{2},
+                            \frac{y_{\min} + y_{\max}}{2}
+                            \right)
+                            \]
+                        </div>
+
+                        <p>
+                            Since raster dimensions may vary across datasets, centroid coordinates are
+                            normalized relative to the total image width (<em>W</em>) and height (<em>H</em>).
+                            This normalization ensures scale invariance and enables consistent mapping
+                            between image space and geographic space.
+                        </p>
+
+                        <div class="formula-box">
+                            \[
+                            N_x = \frac{x_{\text{center}}}{W}
+                            \]
+
+                            \[
+                            N_y = \frac{y_{\text{center}}}{H}
+                            \]
+                        </div>
+
+                        <div class="info-box">
+                            <p><strong>Where:</strong></p>
+                            <ul>
+                                <li>
+                                    $N_x, N_y$:
+                                    Normalized centroid coordinates
+                                </li>
+                                <li>
+                                    $W, H$:
+                                    Raster image width and height (in pixels)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="methodology-step">
+                    <div class="step-header">
+                        <span class="step-number">Step 3</span>
+                        <h3>Geographic Coordinate Derivation</h3>
+                    </div>
+
+                    <div class="step-content">
+                        <p>
+                            In the final stage, normalized centroid coordinates are mapped to real-world
+                            geographic coordinates using the spatial extent of the raster. This mapping
+                            establishes a linear relationship between normalized image space and the
+                            geographic coordinate system.
+                        </p>
+
+                        <p>
+                            Using the top-left and bottom-right corner coordinates of the raster’s
+                            geographic bounding polygon, latitude and longitude values for each detected
+                            object are computed as follows:
+                        </p>
+
+                        <div class="formula-box">
+                            \[
+                            \text{lat}
+                            =
+                            lat_{TL}
+                            +
+                            \left( lat_{BR} - lat_{TL} \right)
+                            \cdot
+                            N_x
+                            \]
+
+                            \[
+                            \text{lon}
+                            =
+                            lon_{TL}
+                            +
+                            \left( lon_{BR} - lon_{TL} \right)
+                            \cdot
+                            N_y
+                            \]
+                        </div>
+
+                        <div class="info-box">
+                            <p><strong>Where:</strong></p>
+                            <ul>
+                                <li>
+                                    $\text{lat}, \text{lon}$:
+                                    Geographic coordinates of the detected object
+                                </li>
+                                <li>
+                                    $N_x, N_y$:
+                                    Normalized centroid coordinates
+                                </li>
+                                <li>
+                                    $lat_{TL}, lon_{TL}, lat_{BR}, lon_{BR}$:
+                                    Geographic coordinates of the raster corner points
+                                </li>
+                            </ul>
+
+                        </div>
+
+                        <p>
+                            This approach ensures spatial consistency and allows detected objects to be
+                            accurately referenced within GIS systems, spatial databases, and interactive
+                            mapping platforms.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <i class="fas fa-info-circle"></i>
+                    <div>
+                        <h4>Implementation and Model Details</h4>
+                        <p>
+                            Object detection within InferenceVision is implemented using models provided
+                            by the <strong>Ultralytics</strong> framework, including YOLO-based architectures
+                            optimized for high-speed inference and high-resolution imagery. These models
+                            are well-suited for geospatial applications due to their balance between
+                            accuracy and computational efficiency.
+                        </p>
+                        <p class="mt-2">
+                            <strong>Important:</strong> Input raster images must contain valid spatial
+                            reference metadata and an explicitly defined CRS to ensure correct geographic
+                            coordinate computation.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cta-box">
+                    <h4>Apply the Methodology</h4>
+                    <p>
+                        Follow a practical, step-by-step example demonstrating the full InferenceVision
+                        pipeline from object detection to geographic coordinate extraction.
+                    </p>
+                    <a href="https://github.com/doguilmak/InferenceVision/blob/main/usage/InferenceVision_Usage.ipynb"
+                        target="_blank" class="btn-primary">
+                        View Usage Guide <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
             </div>
         </div>
     </section>
-    <footer role="contentinfo">
+
+    <footer>
         <div class="footer-container">
-            <p class="footer-text">© 2025 InferenceVision. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="https://github.com/doguilmak/InferenceVision" target="_blank" aria-label="GitHub Repository">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="mailto:doguilmak@gmail.com" aria-label="Contact Email">
-                    <i class="fas fa-envelope"></i> Email
-                </a>
+            <div class="footer-section">
+                <h3>InferenceVision</h3>
+                <p>Advanced geospatial analysis through automated object detection and coordinate calculations.</p>
             </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="problem.html"><i class="fas fa-angle-right"></i> Problem Statement</a>
+                    <a href="objectives.html"><i class="fas fa-angle-right"></i> Objectives</a>
+                    <a href="methodology.html"><i class="fas fa-angle-right"></i> Methodology</a>
+                    <a href="contributions.html"><i class="fas fa-angle-right"></i> Contributions</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="footer-links">
+                    <a href="https://github.com/doguilmak/InferenceVision" target="_blank">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
+                    <a href="mailto:doguilmak@gmail.com">
+                        <i class="fas fa-envelope"></i> Email Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 InferenceVision. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="scripts.js"></script>
 </body>
 
 </html>
