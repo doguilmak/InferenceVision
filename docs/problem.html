@@ -3,102 +3,231 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Provide geographical coordinates from bounding boxes.">
-    <meta name="keywords" content="Object detection, Deep Learning, YOLO, Ultralytics, Rasterio, Python">
+    <meta name="description"
+        content="Challenges and limitations in traditional geospatial analysis, motivating automated object detection and coordinate extraction.">
+    <meta name="keywords" content="Geospatial Analysis, Object Detection, Satellite Imagery, Challenges, Automation">
     <meta name="author" content="Doğu İlmak">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InferenceVision</title>
+
+    <title>Problem Statement | InferenceVision</title>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script defer src="scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.12.1/polyfill.min.js"></script>
 </head>
 
 <body>
-    <header role="banner">
-        <div class="container">
-            <div class="logo" role="img" aria-label="InferenceVision Logo">
-                <a href="index.html" style="text-decoration: none; color: inherit;">
-                    <h2 style="color: #e29d84;">InferenceVision</h2>
-                </a>
-            </div>
-            <nav role="navigation">
-                <ul id="navbar" aria-label="Main Navigation">
-                    <li><a href="problem.html" aria-label="Problem Statement">Problem Statement</a></li>
-                    <li><a href="objectives.html" aria-label="Project Objective">Project Objectives</a></li>
-                    <li><a href="methodology.html" aria-label="Methodology">Methodology</a></li>
-                    <li><a href="contributions.html" aria-label="Scientific Contributions">Contributions</a></li>
+    <header id="header">
+        <div class="header-container">
+            <a href="index.html" style="text-decoration: none;">
+                <div class="logo">InferenceVision</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="problem.html" class="active">Problem</a></li>
+                    <li><a href="objectives.html">Objectives</a></li>
+                    <li><a href="methodology.html">Methodology</a></li>
+                    <li><a href="contributions.html">Contributions</a></li>
+                    <li><a href="index.html#install">Install</a></li>
                 </ul>
-                <div class="dropdown-menu">
-                    <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">&#9776;</button>
-                    <div class="dropdown-content" role="menu" aria-hidden="true" data-dropdown-menu>
-                        <a href="problem.html" role="menuitem" aria-label="Problem Statement">Problem
-                            Statement</a>
-                        <a href="objectives.html" role="menuitem" aria-label="Project Objective">Project
-                            Objectives</a>
-                        <a href="methodology.html" role="menuitem" aria-label="Methodology">Methodology</a>
-                        <a href="contributions.html" role="menuitem"
-                            aria-label="Scientific Contributions">Contributions</a>
-                    </div>
-                </div>
             </nav>
+            <button class="mobile-menu" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
-    <section class="hero" aria-label="Hero Section">
-        <img src="https://github.com/doguilmak/InferenceVision/raw/main/assets/Inference%20Vision%20Cover.png"
-            alt="Hero image showcasing InferenceVision" role="img">
-    </section>
-    <section id="problem-statement" class="content-section" aria-labelledby="problem-statement-heading">
-        <div class="container">
-            <div class="content-left">
-                <h2 id="problem-statement-heading">Problem Statement</h2>
-            </div>
-            <div class="content-right">
-                <p>
-                    Traditional methods of geospatial analysis often rely on manual identification and mapping of
-                    objects
-                    within geographical regions. These methods are not only time-consuming and labor-intensive but are
-                    also prone
-                    to errors, especially when applied to large-scale datasets. Additionally, they often lack the
-                    scalability
-                    required for handling high-resolution satellite imagery or extensive geographic areas.
-                </p>
-                <p>
-                    The limitations of these traditional approaches are particularly evident in applications
-                    <b>requiring
-                        rapid and accurate decision-making, such as disaster response, urban planning, and environmental
-                        monitoring.</b>
-                    The inability to efficiently process and analyze geospatial data can lead to delays, inaccuracies,
-                    and
-                    missed opportunities for actionable insights.
-                </p>
-                <p>
-                    Therefore, there is an urgent need for automated solutions that integrate object detection and
-                    geographic
-                    coordinate calculations. Such solutions can streamline geospatial analysis by leveraging advanced
-                    algorithms
-                    to detect, locate, and map objects with high accuracy and scalability. <b>By addressing these
-                        challenges,
-                        automated systems can unlock new possibilities for geospatial research and practical
-                        applications.</b>
-                </p>
-            </div>
+
+    <section class="page-hero">
+        <div class="hero-bg" style="background-image: url('bg-problem.jpg');"></div>
+        <div class="page-hero-content">
+            <h1>Problem Statement</h1>
+            <p>Understanding the challenges in traditional geospatial analysis and the need for automation</p>
         </div>
     </section>
-    <footer role="contentinfo">
-        <div class="footer-container">
-            <p class="footer-text">© 2025 InferenceVision. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="https://github.com/doguilmak/InferenceVision" target="_blank" aria-label="GitHub Repository">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="mailto:doguilmak@gmail.com" aria-label="Contact Email">
-                    <i class="fas fa-envelope"></i> Email
-                </a>
+
+    <section class="content-section">
+        <div class="content-container">
+            <div class="content-sidebar">
+                <div class="sidebar-card">
+                    <h3>Key Challenges</h3>
+                    <ul class="sidebar-list">
+                        <li><i class="fas fa-check-circle"></i> Time-Consuming Processes for Large Datasets</li>
+                        <li><i class="fas fa-check-circle"></i> Labor-Intensive Manual Mapping</li>
+                        <li><i class="fas fa-check-circle"></i> High Risk of Human Error</li>
+                        <li><i class="fas fa-check-circle"></i> Limited Scalability for High-Resolution Imagery</li>
+                        <li><i class="fas fa-check-circle"></i> Difficulty Integrating Multi-Source Data</li>
+                    </ul>
+                </div>
             </div>
+            <div class="content-main">
+                <div class="content-card">
+
+                    <h2>Key Challenges in Traditional Geospatial Analysis</h2>
+                    <p>
+                        Understanding the limitations of conventional workflows is essential to appreciate why
+                        <strong>InferenceVision</strong> was developed. The following challenges reflect real-world
+                        bottlenecks observed in operational geospatial projects and explain how automated,
+                        AI-driven pipelines significantly improve efficiency, reliability, and scalability.
+                    </p>
+
+                    <div class="objective-box fade-in">
+                        <div class="objective-number">1</div>
+                        <div class="objective-content">
+                            <h4>Time-Consuming Process</h4>
+                            <p>
+                                Traditional geospatial analysis relies heavily on manual inspection of imagery,
+                                sequential annotation, and post-processing steps such as polygon digitization and
+                                coordinate extraction. Analysts must visually scan large satellite scenes, tile them
+                                manually, annotate each feature, and then reassemble results into a usable spatial
+                                product. For very high-resolution imagery, this process can take several hours or even
+                                days per dataset.
+                            </p>
+                            <p>
+                                InferenceVision addresses this limitation by automating object detection and geographic
+                                coordinate generation. By directly converting model outputs (bounding boxes and centers)
+                                into WGS84 coordinates, the system dramatically shortens the time between data
+                                acquisition and actionable insights. This speed is critical in time-sensitive
+                                applications such as disaster response, damage assessment, and rapid urban monitoring,
+                                where delays can directly impact decision-making quality.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="objective-box fade-in">
+                        <div class="objective-number">2</div>
+                        <div class="objective-content">
+                            <h4>Labor-Intensive Work</h4>
+                            <p>
+                                Manual geospatial workflows require skilled analysts to repeatedly perform tasks such
+                                as feature identification, polygon drawing, attribute calculation, and spatial
+                                validation. These tasks are cognitively demanding, repetitive, and costly, especially
+                                when working with large-scale or multi-temporal datasets. As project size increases,
+                                personnel costs grow linearly, limiting operational scalability.
+                            </p>
+                            <p>
+                                InferenceVision reduces labor demands by shifting routine detection and coordinate
+                                extraction to automated inference pipelines. Human expertise is preserved for higher-
+                                value activities such as validation, interpretation, and edge-case review. This hybrid
+                                human–AI workflow not only lowers operational costs but also enables teams to process
+                                significantly larger datasets without proportional increases in staffing.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="objective-box fade-in">
+                        <div class="objective-number">3</div>
+                        <div class="objective-content">
+                            <h4>Error-Prone Analysis</h4>
+                            <p>
+                                Human-driven analysis is inherently susceptible to errors, including inconsistent
+                                labeling, imprecise polygon boundaries, and mistakes in coordinate reference system
+                                (CRS) transformations. Even minor inaccuracies in spatial alignment or geometry can
+                                propagate through downstream analyses, reducing the reliability of maps used for
+                                urban planning, disaster management, or environmental monitoring.
+                            </p>
+                            <p>
+                                InferenceVision mitigates these risks by enforcing a consistent, reproducible coordinate
+                                conversion pipeline. Automated transformations from image space to geographic space
+                                reduce subjective interpretation and ensure uniform spatial outputs. When combined with
+                                proper validation and logging, this approach significantly improves data integrity and
+                                reproducibility compared to fully manual workflows.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="objective-box fade-in">
+                        <div class="objective-number">4</div>
+                        <div class="objective-content">
+                            <h4>Scalability Issues</h4>
+                            <p>
+                                Processing high-resolution imagery across large geographic extents presents major
+                                scalability challenges for traditional methods. Manual annotation does not scale
+                                efficiently, and computational limitations often restrict the number of images that
+                                can be analyzed simultaneously. As a result, large-area studies experience long
+                                turnaround times and delayed insights.
+                            </p>
+                            <p>
+                                InferenceVision is designed with scalable inference in mind. By operating on image tiles
+                                and supporting batch processing, the framework can be deployed on modern GPU-enabled or
+                                distributed computing environments. This architecture enables consistent performance as
+                                data volumes grow, making national-scale or multi-year analyses feasible within
+                                practical time constraints.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="objective-box fade-in">
+                        <div class="objective-number">5</div>
+                        <div class="objective-content">
+                            <h4>Difficulty Integrating Multi-Source Data</h4>
+                            <p>
+                                Modern geospatial projects increasingly rely on data from multiple sources, including
+                                satellites, drones, and in-situ sensors. Each source may differ in spatial resolution,
+                                projection, temporal frequency, and data quality. Manually aligning these datasets
+                                requires extensive preprocessing and is highly prone to inconsistencies.
+                            </p>
+                            <p>
+                                InferenceVision simplifies multi-source integration by standardizing outputs into a
+                                common geographic coordinate system. This consistent spatial representation enables
+                                easier fusion with external GIS layers, time-series analysis, and cross-sensor
+                                comparison. When combined with proper preprocessing and metadata management, this
+                                approach improves interoperability and strengthens the reliability of multi-source
+                                geospatial analyses.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="cta-box fade-in">
+                    <h4>Next Step: Explore Solutions</h4>
+                    <p>
+                        Automated geospatial analysis can address all these challenges. Learn how InferenceVision
+                        transforms workflows with precision and efficiency.
+                    </p>
+                    <a href="objectives.html" class="btn-primary">View Objectives <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>InferenceVision</h3>
+                <p>Advanced geospatial analysis through automated object detection and coordinate calculations.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="problem.html"><i class="fas fa-angle-right"></i> Problem Statement</a>
+                    <a href="objectives.html"><i class="fas fa-angle-right"></i> Objectives</a>
+                    <a href="methodology.html"><i class="fas fa-angle-right"></i> Methodology</a>
+                    <a href="contributions.html"><i class="fas fa-angle-right"></i> Contributions</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="footer-links">
+                    <a href="https://github.com/doguilmak/InferenceVision" target="_blank">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
+                    <a href="mailto:doguilmak@gmail.com">
+                        <i class="fas fa-envelope"></i> Email Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 InferenceVision. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="scripts.js"></script>
 </body>
 
 </html>
