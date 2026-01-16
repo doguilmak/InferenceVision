@@ -3,156 +3,190 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Provide geographical coordinates from bounding boxes.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Provide geographical coordinates from bounding boxes using advanced object detection">
     <meta name="keywords" content="Object detection, Deep Learning, YOLO, Ultralytics, Rasterio, Python">
     <meta name="author" content="Doğu İlmak">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InferenceVision</title>
+    <title>InferenceVision | Advanced Geospatial Analysis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script defer src="scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.12.1/polyfill.min.js"></script>
 </head>
 
 <body>
-    <header role="banner">
-        <div class="container">
-            <div class="logo" role="img" aria-label="InferenceVision Logo">
-                <a href="index.html" style="text-decoration: none; color: inherit;">
-                    <h2 style="color: #e29d84;">InferenceVision</h2>
-                </a>
-            </div>
-            <nav role="navigation">
-                <ul id="navbar" aria-label="Main Navigation">
-                    <li><a href="problem.html" aria-label="Problem Statement">Problem Statement</a></li>
-                    <li><a href="objectives.html" aria-label="Project Objective">Project Objectives</a></li>
-                    <li><a href="methodology.html" aria-label="Methodology">Methodology</a></li>
-                    <li><a href="contributions.html" aria-label="Scientific Contributions">Contributions</a></li>
-                    <li><a href="#install" aria-label="Installation Instructions">Install</a></li>
+    <header id="header">
+        <div class="header-container">
+            <a href="index.html" style="text-decoration: none;">
+                <div class="logo">InferenceVision</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="problem.html">Problem</a></li>
+                    <li><a href="objectives.html">Objectives</a></li>
+                    <li><a href="methodology.html">Methodology</a></li>
+                    <li><a href="contributions.html">Contributions</a></li>
+                    <li><a href="#install">Install</a></li>
                 </ul>
-                <div class="dropdown-menu">
-                    <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">&#9776;</button>
-                    <div class="dropdown-content" role="menu" aria-hidden="true" data-dropdown-menu>
-                        <a href="problem.html" role="menuitem" aria-label="Problem Statement">Problem
-                            Statement</a>
-                        <a href="objectives.html" role="menuitem" aria-label="Project Objective">Project
-                            Objectives</a>
-                        <a href="methodology.html" role="menuitem" aria-label="Methodology">Methodology</a>
-                        <a href="contributions.html" role="menuitem"
-                            aria-label="Scientific Contributions">Contributions</a>
-                        <a href="#install" role="menuitem" aria-label="Installation Instructions">Install</a>
-                    </div>
-                </div>
             </nav>
+            <button class="mobile-menu" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
-    <section class="hero" aria-label="Hero Section">
-        <img src="https://github.com/doguilmak/InferenceVision/raw/main/assets/Inference%20Vision%20Cover.png"
-            alt="Hero image showcasing InferenceVision" role="img">
-    </section>
-    <section class="grid-container" aria-label="Key Sections">
-        <div id="problem-statement" class="grid-item" aria-labelledby="problem-statement-heading">
-            <h2 id="problem-statement-heading">Problem Statement</h2>
-            <div class="image-container">
-                <img src="cover1.png" alt="Problem Statement Image" class="grid-image">
-            </div>
-            <p class="grid-description">Traditional geospatial analysis is slow, labor-intensive, and prone to errors
-                due to manual mapping. Automated solutions are needed to enable faster, more accurate, and scalable
-                analysis of geographic data. Explore more to discover how automation is transforming geospatial
-                analysis.</p>
-            <a href="problem.html" class="grid-link">Learn more</a>
-        </div>
-        <div id="project-objective" class="grid-item" aria-labelledby="project-objective-heading">
-            <h2 id="project-objective-heading">Project Objectives</h2>
-            <div class="image-container">
-                <img src="cover2.png" alt="Project Objective Image" class="grid-image">
-            </div>
-            <p class="grid-description">Our project automates object detection and geographic coordinate calculations,
-                using algorithms like YOLO to improve accuracy and scalability. This approach enhances the speed and
-                efficiency of geospatial analysis. Explore more to see how it transforms spatial data analysis.</p>
-            <a href="objectives.html" class="grid-link">Discover more</a>
-        </div>
 
-        <div id="methodology" class="grid-item" aria-labelledby="methodology-heading">
-            <h2 id="methodology-heading">Methodology</h2>
-            <div class="image-container">
-                <img src="cover3.png" alt="Methodology Image" class="grid-image">
-            </div>
-            <p class="grid-description">This methodology automates the extraction of geographic coordinates from
-                satellite images, using advanced transformations and object detection. It enables accurate, scalable
-                geospatial analysis. Explore more to learn how this enhances spatial data processing.</p>
-            <a href="methodology.html" class="grid-link">Explore methodology</a>
+    <section class="hero">
+        <img src="cover6.gif" alt="InferenceVision Cover" class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>InferenceVision</h1>
+            <p>Provide geographic coordinates from bounding boxes</p>
+            <a href="#features" class="cta-button">Explore Features</a>
         </div>
-
-        <div id="scientific-contributions" class="grid-item" aria-labelledby="scientific-contributions-heading">
-            <h2 id="scientific-contributions-heading">Contributions</h2>
-            <div class="image-container">
-                <img src="cover4.png" alt="Scientific Contributions Image" class="grid-image">
-            </div>
-            <p class="grid-description">This project automates object detection and geographic coordinate calculation,
-                improving efficiency, accuracy, and scalability. It is versatile, supporting applications in various
-                fields. Explore more to see how this advances geospatial research.</p>
-            <a href="contributions.html" class="grid-link">Read more</a>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
-    <section id="install" class="content-section" aria-labelledby="install-heading">
-        <div class="container">
-            <div class="content-left">
-                <h2 id="install-heading">Install</h2>
+
+    <section id="features" class="grid-section">
+        <div class="section-header">
+            <h2>Key Features</h2>
+            <p>Transforming geospatial analysis with cutting-edge automation and precision</p>
+        </div>
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="cover1.gif" alt="Problem Statement" loading="lazy">
+                </div>
+                <div class="grid-content">
+                    <h3>Problem Statement</h3>
+                    <p>Traditional geospatial analysis is slow, labor-intensive, and prone to errors. Discover how
+                        automation is revolutionizing spatial data processing.</p>
+                    <a href="problem.html" class="grid-link">
+                        Learn more <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
 
-            <div class="content-right">
-                <h3>Clone the repository from GitHub</h3>
-                <div class="code-container">
-                    <pre><code>git clone https://github.com/doguilmak/InferenceVision.git</code></pre>
-                    <button class="copy-btn" onclick="copyToClipboard(this)"
-                        aria-label="Copy git clone command">Copy</button>
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="cover2.gif" alt="Project Objectives" loading="lazy">
                 </div>
-                <h3>Navigate to the project directory</h3>
-                <div class="code-container">
-                    <pre><code>cd InferenceVision</code></pre>
-                    <button class="copy-btn" onclick="copyToClipboard(this)"
-                        aria-label="Copy change directory command">Copy</button>
+                <div class="grid-content">
+                    <h3>Project Objectives</h3>
+                    <p>Automated object detection and coordinate calculations using YOLO algorithms for enhanced
+                        accuracy and scalability.</p>
+                    <a href="objectives.html" class="grid-link">
+                        Discover more <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <h3>Install the required dependencies</h3>
-                <div class="code-container">
-                    <pre><code>pip install -r requirements.txt</code></pre>
-                    <button class="copy-btn" onclick="copyToClipboard(this)"
-                        aria-label="Copy install dependencies command">Copy</button>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="cover3.gif" alt="Methodology" loading="lazy">
                 </div>
-                <h3>Import and run the library</h3>
-                <div class="code-container">
-                    <pre><code>from inference_vision import InferenceVision</code></pre>
-                    <button class="copy-btn" onclick="copyToClipboard(this)"
-                        aria-label="Copy import command">Copy</button>
+                <div class="grid-content">
+                    <h3>Methodology</h3>
+                    <p>Extract geographic coordinates from satellite images using advanced transformations and object
+                        detection techniques.</p>
+                    <a href="methodology.html" class="grid-link">
+                        Explore methodology <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <div class="code-container">
-                    <pre><code>inference = InferenceVision()</code></pre>
-                    <button class="copy-btn" onclick="copyToClipboard(this)"
-                        aria-label="Copy import function command">Copy</button>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="cover4.gif" alt="Contributions" loading="lazy">
                 </div>
-                <div class="code-container">
-                    <pre><code>inference.process_image()</code></pre>
-                    <button class="copy-btn" onclick="copyToClipboard(this)"
-                        aria-label="Copy run function command">Copy</button>
+                <div class="grid-content">
+                    <h3>Contributions</h3>
+                    <p>Improving efficiency, accuracy, and scalability across diverse applications in geospatial
+                        research.</p>
+                    <a href="contributions.html" class="grid-link">
+                        Read more <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-    <footer role="contentinfo">
+
+    <section id="install" class="install-section">
+        <div class="install-container">
+            <div class="install-header">
+                <h2>Quick Start</h2>
+                <p>Get started with InferenceVision in minutes</p>
+            </div>
+
+            <div class="code-block">
+                <h3>1. Clone the repository</h3>
+                <div class="code-container">
+                    <code>git clone https://github.com/doguilmak/InferenceVision.git</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <h3>2. Navigate to directory</h3>
+                <div class="code-container">
+                    <code>cd InferenceVision</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <h3>3. Install dependencies</h3>
+                <div class="code-container">
+                    <code>pip install -r requirements.txt</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <h3>4. Import and use</h3>
+                <div class="code-container">
+                    <code>from inference_vision import InferenceVision
+     inference = InferenceVision()
+     inference.process_image()</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
         <div class="footer-container">
-            <p class="footer-text">© 2025 InferenceVision. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="https://github.com/doguilmak/InferenceVision" target="_blank" aria-label="GitHub Repository">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="mailto:doguilmak@gmail.com" aria-label="Contact Email">
-                    <i class="fas fa-envelope"></i> Email
-                </a>
+            <div class="footer-section">
+                <h3>InferenceVision</h3>
+                <p>Advanced geospatial analysis through automated object detection and coordinate calculations.</p>
             </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="problem.html"><i class="fas fa-angle-right"></i> Problem Statement</a>
+                    <a href="objectives.html"><i class="fas fa-angle-right"></i> Objectives</a>
+                    <a href="methodology.html"><i class="fas fa-angle-right"></i> Methodology</a>
+                    <a href="contributions.html"><i class="fas fa-angle-right"></i> Contributions</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="footer-links">
+                    <a href="https://github.com/doguilmak/InferenceVision" target="_blank">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
+                    <a href="mailto:doguilmak@gmail.com">
+                        <i class="fas fa-envelope"></i> Email Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 InferenceVision. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="scripts.js"></script>
 </body>
 
 </html>
