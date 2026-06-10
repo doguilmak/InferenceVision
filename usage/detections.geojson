@@ -1,0 +1,455 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.153736908,
+          36.20832499
+        ]
+      },
+      "properties": {
+        "point": 0,
+        "image": "/content/image.tif",
+        "class": "collapsed",
+        "confidence": 0.8137,
+        "bbox_xyxy": [
+          267.3173828125,
+          503.9970703125,
+          353.7550048828125,
+          584.5823974609375
+        ],
+        "bbox_center_px": [
+          310.54,
+          544.29
+        ],
+        "normalized_center": [
+          0.4852128,
+          0.85045271
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.152872278,
+          36.209459839
+        ]
+      },
+      "properties": {
+        "point": 1,
+        "image": "/content/image.tif",
+        "class": "non_collapsed",
+        "confidence": 0.7879,
+        "bbox_xyxy": [
+          24.629562377929688,
+          88.21810913085938,
+          101.01022338867188,
+          149.4080047607422
+        ],
+        "bbox_center_px": [
+          62.82,
+          118.81
+        ],
+        "normalized_center": [
+          0.09815608,
+          0.1856454
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.153166267,
+          36.209659456
+        ]
+      },
+      "properties": {
+        "point": 2,
+        "image": "/content/image.tif",
+        "class": "non_collapsed",
+        "confidence": 0.7801,
+        "bbox_xyxy": [
+          106.32655334472656,
+          11.338043212890625,
+          187.76890563964844,
+          76.6071548461914
+        ],
+        "bbox_center_px": [
+          147.05,
+          43.97
+        ],
+        "normalized_center": [
+          0.22976208,
+          0.06870719
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.153117979,
+          36.208671281
+        ]
+      },
+      "properties": {
+        "point": 3,
+        "image": "/content/image.tif",
+        "class": "non_collapsed",
+        "confidence": 0.7765,
+        "bbox_xyxy": [
+          93.32782745361328,
+          380.359375,
+          173.09844970703125,
+          448.5576171875
+        ],
+        "bbox_center_px": [
+          133.21,
+          414.46
+        ],
+        "normalized_center": [
+          0.20814552,
+          0.6475914
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.153346778,
+          36.208312142
+        ]
+      },
+      "properties": {
+        "point": 4,
+        "image": "/content/image.tif",
+        "class": "collapsed",
+        "confidence": 0.773,
+        "bbox_xyxy": [
+          154.2960205078125,
+          507.2677307128906,
+          243.23193359375,
+          590.9459228515625
+        ],
+        "bbox_center_px": [
+          198.76,
+          549.11
+        ],
+        "normalized_center": [
+          0.31056871,
+          0.85797939
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.153386303,
+          36.208900802
+        ]
+      },
+      "properties": {
+        "point": 5,
+        "image": "/content/image.tif",
+        "class": "non_collapsed",
+        "confidence": 0.7518,
+        "bbox_xyxy": [
+          172.75901794433594,
+          294.23138427734375,
+          247.4168243408203,
+          362.58258056640625
+        ],
+        "bbox_center_px": [
+          210.09,
+          328.41
+        ],
+        "normalized_center": [
+          0.32826238,
+          0.51313591
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.15366841,
+          36.209556688
+        ]
+      },
+      "properties": {
+        "point": 6,
+        "image": "/content/image.tif",
+        "class": "non_collapsed",
+        "confidence": 0.7485,
+        "bbox_xyxy": [
+          249.26089477539062,
+          45.47359085083008,
+          332.5621643066406,
+          119.53141784667969
+        ],
+        "bbox_center_px": [
+          290.91,
+          82.5
+        ],
+        "normalized_center": [
+          0.45454926,
+          0.12891016
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.153738068,
+          36.209201779
+        ]
+      },
+      "properties": {
+        "point": 7,
+        "image": "/content/image.tif",
+        "class": "non_collapsed",
+        "confidence": 0.7416,
+        "bbox_xyxy": [
+          272.16705322265625,
+          182.76766967773438,
+          349.57025146484375,
+          248.36154174804688
+        ],
+        "bbox_center_px": [
+          310.87,
+          215.56
+        ],
+        "normalized_center": [
+          0.48573227,
+          0.3368197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.154613322,
+          36.209727888
+        ]
+      },
+      "properties": {
+        "point": 8,
+        "image": "/content/image.tif",
+        "class": "non_collapsed",
+        "confidence": 0.6975,
+        "bbox_xyxy": [
+          518.4730834960938,
+          0.056514739990234375,
+          604.7839965820312,
+          36.576263427734375
+        ],
+        "bbox_center_px": [
+          561.63,
+          18.32
+        ],
+        "normalized_center": [
+          0.87754459,
+          0.02861936
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.154652272,
+          36.208935948
+        ]
+      },
+      "properties": {
+        "point": 9,
+        "image": "/content/image.tif",
+        "class": "collapsed",
+        "confidence": 0.6798,
+        "bbox_xyxy": [
+          521.6751708984375,
+          270.0876770019531,
+          623.9005126953125,
+          360.3721618652344
+        ],
+        "bbox_center_px": [
+          572.79,
+          315.23
+        ],
+        "normalized_center": [
+          0.894981,
+          0.49254675
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.152765062,
+          36.20874877
+        ]
+      },
+      "properties": {
+        "point": 10,
+        "image": "/content/image.tif",
+        "class": "non_collapsed",
+        "confidence": 0.6651,
+        "bbox_xyxy": [
+          0.0,
+          352.17022705078125,
+          64.20510864257812,
+          418.642822265625
+        ],
+        "bbox_center_px": [
+          32.1,
+          385.41
+        ],
+        "normalized_center": [
+          0.05016024,
+          0.60219769
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.153978751,
+          36.208938142
+        ]
+      },
+      "properties": {
+        "point": 11,
+        "image": "/content/image.tif",
+        "class": "collapsed",
+        "confidence": 0.6213,
+        "bbox_xyxy": [
+          341.2618713378906,
+          270.0526123046875,
+          418.3866882324219,
+          358.76220703125
+        ],
+        "bbox_center_px": [
+          379.82,
+          314.41
+        ],
+        "normalized_center": [
+          0.59347544,
+          0.49126158
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.154556644,
+          36.209552042
+        ]
+      },
+      "properties": {
+        "point": 12,
+        "image": "/content/image.tif",
+        "class": "non_collapsed",
+        "confidence": 0.5644,
+        "bbox_xyxy": [
+          498.87017822265625,
+          56.95531463623047,
+          591.9102172851562,
+          111.5334243774414
+        ],
+        "bbox_center_px": [
+          545.39,
+          84.24
+        ],
+        "normalized_center": [
+          0.85217218,
+          0.13163183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.154420252,
+          36.208145663
+        ]
+      },
+      "properties": {
+        "point": 13,
+        "image": "/content/image.tif",
+        "class": "non_collapsed",
+        "confidence": 0.5188,
+        "bbox_xyxy": [
+          454.74530029296875,
+          583.046142578125,
+          557.8828735351562,
+          640.0
+        ],
+        "bbox_center_px": [
+          506.31,
+          611.52
+        ],
+        "normalized_center": [
+          0.79111576,
+          0.9555048
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.153728104,
+          36.208640812
+        ]
+      },
+      "properties": {
+        "point": 14,
+        "image": "/content/image.tif",
+        "class": "collapsed",
+        "confidence": 0.5004,
+        "bbox_xyxy": [
+          261.666015625,
+          379.55517578125,
+          354.361572265625,
+          472.20867919921875
+        ],
+        "bbox_center_px": [
+          308.01,
+          425.88
+        ],
+        "normalized_center": [
+          0.48127155,
+          0.66544051
+        ]
+      }
+    }
+  ]
+}
