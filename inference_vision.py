@@ -1,12 +1,15 @@
-import rasterio.warp
-from rasterio import features
+import json
+
 import numpy as np
 import pandas as pd
+import rasterio.warp
+from rasterio import features
 from ultralytics import YOLO
 
+
 class InferenceVision:
-    
-    VERSION = "1.2"
+
+    VERSION = "1.3"
 
     def __init__(self, tif_path, model_path, coord_precision=9):
         """
@@ -19,12 +22,13 @@ class InferenceVision:
         model_path : str
             The file path to the YOLO model weights.
         coord_precision : int, optional
-            The number of decimal places to use for geographic coordinates. Default is 9.
+            The number of decimal places to use for geographic coordinates.
+            Default is 9.
 
-        Returns
-        -------
-        None
-            This method initializes the object and does not return any value.
+        Raises
+        ------
+        ValueError
+            If the TIFF file cannot be opened.
 
         Example
         -------
@@ -33,10 +37,12 @@ class InferenceVision:
         self.tif_path = tif_path
         self.model_path = model_path
         self.coord_precision = coord_precision
-        self.extracted_polygons_lonlat = []
-        self.results = []
-        self.center_coords = []
+
+        # State — reset at each process_image() call
         self.extracted_polygons = []
+        self.extracted_polygons_lonlat = []
+        self.center_coords = []
+        self.results = []
 
         try:
             with rasterio.open(self.tif_path) as dataset:
@@ -52,162 +58,243 @@ class InferenceVision:
         Parameters
         ----------
         center_points : list of tuples
-            A list of (x, y) center coordinates.
+            A list of (x, y) center coordinates in pixels.
 
         Returns
         -------
-        list of tuples
-            A list of normalized (x, y) center coordinates.
+        list of list
+            A list of [norm_x, norm_y] values in the [0, 1] range.
 
         Example
         -------
         >>> iv = InferenceVision("image.tif", "model.pt")
-        >>> normalized_points = iv.normalize_center_points([(100, 200), (150, 250)])
-        >>> print(normalized_points)
+        >>> iv.normalize_center_points([(100, 200), (150, 250)])
         """
-        normalized_points = []
-        for x_center, y_center in center_points:
-            normalized_x = x_center / self.image_width
-            normalized_y = y_center / self.image_height
-            normalized_points.append([normalized_x, normalized_y])
-        return normalized_points
+        return [
+            [x / self.image_width, y / self.image_height]
+            for x, y in center_points
+        ]
 
-    def calculate_bbox_center(self, coordinates):
+    def process_image(self, output_format=None, csv_filename=None, geojson_filename=None):
         """
-        Calculate the center of a bounding box.
+        Run YOLO inference on the TIFF image and output geographic results.
 
         Parameters
         ----------
-        coordinates : list of float
-            A list of four values [x_min, y_min, x_max, y_max] representing the bounding box.
-
-        Returns
-        -------
-        tuple
-            The (x_center, y_center) of the bounding box.
-
-        Example
-        -------
-        >>> iv = InferenceVision("image.tif", "model.pt")
-        >>> center = iv.calculate_bbox_center([50, 50, 150, 150])
-        >>> print(center)
-        """
-        x_min, y_min, x_max, y_max = coordinates
-        width = x_max - x_min
-        height = y_max - y_min
-        x_center = x_min + (width / 2)
-        y_center = y_min + (height / 2)
-        return x_center, y_center
-
-    def process_image(self, build_csv=False, csv_filename=None):
-        """
-        Process the image using the YOLO model and optionally save the results to a CSV file.
-
-        Parameters
-        ----------
-        build_csv : bool, optional
-            Whether to build and save the CSV file with results. If True, the CSV file
-            will be saved with the name provided in csv_filename. Default is False.
+        output_format : str or None, optional
+            Output mode. Accepted values:
+            - None       : print results to console (default)
+            - "csv"      : save results to a CSV file (requires csv_filename)
+            - "geojson"  : save results as a GeoJSON FeatureCollection
+                           (requires geojson_filename)
         csv_filename : str, optional
-            The name of the CSV file to save results, if build_csv is True.
+            Destination path for the CSV file. Required when
+            output_format="csv".
+        geojson_filename : str, optional
+            Destination path for the GeoJSON file. Required when
+            output_format="geojson".
 
         Returns
         -------
         None
-            If build_csv is True, saves results to the specified CSV file. If False,
-            prints results.
+
+        Raises
+        ------
+        ValueError
+            If output_format is "csv" but csv_filename is not provided, or
+            output_format is "geojson" but geojson_filename is not provided.
+        RuntimeError
+            If model inference or image processing fails.
 
         Example
         -------
-        Process the image and save results to a CSV file:
         >>> iv = InferenceVision("image.tif", "model.pt")
-        >>> iv.process_image(build_csv=True, csv_filename="results.csv")
-
-        Process the image and print results to the console:
-        >>> iv = InferenceVision("image.tif", "model.pt")
-        >>> iv.process_image()
+        >>> iv.process_image(output_format="csv", csv_filename="out.csv")
+        >>> iv.process_image(output_format="geojson", geojson_filename="out.geojson")
+        >>> iv.process_image()  # print to console
         """
+        # --- Input validation ---
+        if output_format == "csv" and not csv_filename:
+            raise ValueError(
+                "csv_filename must be provided when output_format='csv'."
+            )
+        if output_format == "geojson" and not geojson_filename:
+            raise ValueError(
+                "geojson_filename must be provided when output_format='geojson'."
+            )
+
+        # --- Reset state on every call to prevent accumulation ---
+        self.extracted_polygons = []
+        self.extracted_polygons_lonlat = []
+        self.center_coords = []
+        self.results = []
+
+        # --- Model inference ---
         try:
             model = YOLO(self.model_path)
-            results = model.predict(self.tif_path)
+            yolo_results = model.predict(self.tif_path)
         except Exception as e:
             raise RuntimeError(f"Error during model inference: {e}")
 
         try:
             with rasterio.open(self.tif_path) as dataset:
                 mask = dataset.dataset_mask()
-                for geom, val in rasterio.features.shapes(mask, transform=dataset.transform):
+                for geom, _ in rasterio.features.shapes(mask, transform=dataset.transform):
                     geom = rasterio.warp.transform_geom(
-                        dataset.crs, 'EPSG:4326', geom, precision=self.coord_precision)
-                    self.extracted_polygons.append(geom['coordinates'][0])
+                        dataset.crs, "EPSG:4326", geom,
+                        precision=self.coord_precision
+                    )
+                    self.extracted_polygons.append(geom["coordinates"][0])
 
                 self.extracted_polygons[0] = self.extracted_polygons[0][:-1]
                 self.extracted_polygons_lonlat = self.extracted_polygons[0]
 
-                result = results[0]
+                result = yolo_results[0]
+                self.results = result
                 detected_objects = len(result.boxes)
 
+                if detected_objects == 0:
+                    print("No objects detected in the image.")
+                    return
+
+                # polygon[0][0][0] → longitude of top-left corner
+                # polygon[0][0][1] → latitude  of top-left corner
+                # polygon[0][2][0] → longitude of bottom-right corner
+                # polygon[0][2][1] → latitude  of bottom-right corner
+                lon_tl = self.extracted_polygons[0][0][0]
+                lat_tl = self.extracted_polygons[0][0][1]
+                lon_br = self.extracted_polygons[0][2][0]
+                lat_br = self.extracted_polygons[0][2][1]
+
+                data_list = []
                 for i in range(detected_objects):
-                    box = result.boxes[i]
-                    coordinates = box.xyxy[0].tolist()
-                    x_center, y_center = self.calculate_bbox_center(coordinates)
-                    self.center_coords.append([x_center, y_center])
-
-                normalized_points = self.normalize_center_points(self.center_coords)
-
-                lat_top_left = self.extracted_polygons[0][0][0]
-                lon_top_left = self.extracted_polygons[0][0][1]
-                lat_bottom_right = self.extracted_polygons[0][2][0]
-                lon_bottom_right = self.extracted_polygons[0][2][1]
-
-                normalized_coords = np.array(normalized_points)
-                geographic_coords = np.empty_like(normalized_coords)
-                for i in range(normalized_coords.shape[0]):
-                    y_norm, x_norm = normalized_coords[i]
-                    lat = lat_top_left + (lat_bottom_right - lat_top_left) * y_norm
-                    lon = lon_top_left + (lon_bottom_right - lon_top_left) * x_norm
-                    geographic_coords[i] = [lat, lon]
-
-                formatted_geographic_coords = np.array([
-                    [f'{lat:.{self.coord_precision}f}', f'{lon:.{self.coord_precision}f}'] 
-                    for lat, lon in geographic_coords
-                ])
-
-                if build_csv:
-                    data_list = []
-                    for i in range(detected_objects):
+                    try:
                         box = result.boxes[i]
-                        class_id = result.names[box.cls[0].item()]
-                        coordinates = box.xyxy[0].tolist()
-                        x_center, y_center = self.calculate_bbox_center(coordinates)
-                        normalized_point = normalized_points[i]
+
+                        cx, cy, bw, bh = box.xywh[0].tolist()
+
+                        norm_x = cx / self.image_width   # x-axis → longitude
+                        norm_y = cy / self.image_height  # y-axis → latitude
+
+                        self.center_coords.append([cx, cy])
 
                         data_list.append({
-                            "Image": self.tif_path,
-                            "Point": i,
-                            "Latitude": formatted_geographic_coords[i][1],
-                            "Longitude": formatted_geographic_coords[i][0],
-                            "Object Type": class_id,
-                            "Coordinates": box.xyxy[0].tolist(),
-                            "Confidence Score": box.conf[0].item(),
-                            "Bounding Box Center": [x_center, y_center],
-                            "Normalized Bounding Box Center": normalized_point
+                            "index":   i,
+                            "cx":      cx,
+                            "cy":      cy,
+                            "bw":      bw,
+                            "bh":      bh,
+                            "norm_x":  norm_x,
+                            "norm_y":  norm_y,
+                            "class_id": result.names[box.cls[0].item()],
+                            "conf":    box.conf[0].item(),
+                            "bbox":    box.xyxy[0].tolist(),
                         })
+                    except Exception as e:
+                        print(f"Warning: skipping box {i} due to error: {e}")
+                        continue
 
-                    df = pd.DataFrame(data_list)
-                    df.to_csv(csv_filename, index=False)
-                    print(f"\nDataFrame saved as {csv_filename}")
+                if not data_list:
+                    print("All boxes were skipped due to errors.")
+                    return
+
+                # norm_arr columns: 0 = norm_x (→ lon), 1 = norm_y (→ lat)
+                norm_arr = np.array([[d["norm_x"], d["norm_y"]] for d in data_list])
+                lons = lon_tl + (lon_br - lon_tl) * norm_arr[:, 0]
+                lats = lat_tl + (lat_br - lat_tl) * norm_arr[:, 1]
+
+                # --- Output ---
+                if output_format == "csv":
+                    self._save_csv(data_list, lons, lats, csv_filename)
+
+                elif output_format == "geojson":
+                    self._save_geojson(data_list, lons, lats, geojson_filename)
+
                 else:
-                    for i in range(detected_objects):
-                        box = result.boxes[i]
-                        class_id = result.names[box.cls[0].item()]
-                      
-                        print(f"\nPoint {i} {'-' * 20}")
-                        print(f"Latitude: {formatted_geographic_coords[i][1]} | Longitude: {formatted_geographic_coords[i][0]}")
-                        print(f"Object Type: {class_id}")
-                        print(f"Coordinates (Bounding Box): {box.xyxy[0].tolist()}")
-                        print(f"Confidence Score: {box.conf[0].item():.4f}")
-                        print(f"Bounding Box Center (X, Y): {self.calculate_bbox_center(box.xyxy[0].tolist())}")
-                        print(f"Normalized Bounding Box Center (X, Y): {normalized_points[i]}")
+                    self._print_results(data_list, lons, lats)
+
         except Exception as e:
             raise RuntimeError(f"Error processing the image: {e}")
+
+    # ------------------------------------------------------------------
+    # Private helpers
+    # ------------------------------------------------------------------
+
+    def _save_csv(self, data_list, lons, lats, csv_filename):
+        """Build a DataFrame from detection results and write it to CSV."""
+        try:
+            rows = [
+                {
+                    "Image":                          self.tif_path,
+                    "Point":                          d["index"],
+                    "Latitude":                       f"{lats[i]:.{self.coord_precision}f}",
+                    "Longitude":                      f"{lons[i]:.{self.coord_precision}f}",
+                    "Object Type":                    d["class_id"],
+                    "Coordinates":                    d["bbox"],
+                    "Confidence Score":               d["conf"],
+                    "Bounding Box Center":            [d["cx"], d["cy"]],
+                    "Normalized Bounding Box Center": [d["norm_x"], d["norm_y"]],
+                }
+                for i, d in enumerate(data_list)
+            ]
+            pd.DataFrame(rows).to_csv(csv_filename, index=False)
+            print(f"\nCSV saved as {csv_filename}")
+        except Exception as e:
+            raise RuntimeError(f"Error saving CSV file: {e}")
+
+    def _save_geojson(self, data_list, lons, lats, geojson_filename):
+        """
+        Build a GeoJSON FeatureCollection and write it to disk.
+
+        Each detected object becomes a GeoJSON Point feature. The file is
+        compatible with QGIS, Leaflet, Google Earth, and any OGR-based tool
+        without any additional conversion.
+        """
+        try:
+            features_list = [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            round(float(lons[i]), self.coord_precision),
+                            round(float(lats[i]), self.coord_precision),
+                        ],
+                    },
+                    "properties": {
+                        "point":            d["index"],
+                        "image":            self.tif_path,
+                        "class":            d["class_id"],
+                        "confidence":       round(d["conf"], 4),
+                        "bbox_xyxy":        d["bbox"],
+                        "bbox_center_px":   [round(d["cx"], 2), round(d["cy"], 2)],
+                        "normalized_center":[round(d["norm_x"], 8), round(d["norm_y"], 8)],
+                    },
+                }
+                for i, d in enumerate(data_list)
+            ]
+
+            geojson_data = {
+                "type": "FeatureCollection",
+                "features": features_list,
+            }
+
+            with open(geojson_filename, "w", encoding="utf-8") as f:
+                json.dump(geojson_data, f, indent=2, ensure_ascii=False)
+
+            print(f"\nGeoJSON saved as {geojson_filename}")
+        except Exception as e:
+            raise RuntimeError(f"Error saving GeoJSON file: {e}")
+
+    def _print_results(self, data_list, lons, lats):
+        """Print detection results to the console."""
+        for i, d in enumerate(data_list):
+            print(f"\nPoint {d['index']} {'-' * 20}")
+            print(f"Latitude:  {lats[i]:.{self.coord_precision}f} | "
+                  f"Longitude: {lons[i]:.{self.coord_precision}f}")
+            print(f"Object Type: {d['class_id']}")
+            print(f"Coordinates (Bounding Box): {d['bbox']}")
+            print(f"Confidence Score: {d['conf']:.4f}")
+            print(f"Bounding Box Center (X, Y): ({d['cx']:.2f}, {d['cy']:.2f})")
+            print(f"Normalized Bounding Box Center (X, Y): "
+                  f"({d['norm_x']:.6f}, {d['norm_y']:.6f})")
