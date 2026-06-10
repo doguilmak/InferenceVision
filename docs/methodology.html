@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-	<link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script>
         window.MathJax = {
             tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
@@ -66,8 +66,8 @@
                 <p>
                     The overall workflow is designed to be modular, reproducible, and scalable, allowing
                     it to operate on very high–resolution (VHR) satellite or aerial imagery. The pipeline
-                    consists of three primary stages: coordinate reference system normalization, object
-                    centroid computation, and geographic coordinate derivation.
+                    consists of three primary stages: coordinate reference system normalization,
+                    normalized object center computation, and geographic coordinate derivation.
                 </p>
 
                 <div class="methodology-diagram">
@@ -91,11 +91,9 @@
 
                         <p>
                             Input raster datasets may originate from various projected or geographic
-                            coordinate systems. These datasets are reprojected into EPSG:4326 using
-                            affine transformations and spatial metadata extracted from the raster.
-                            Nearest Neighbor interpolation is applied during reprojection to preserve
-                            discrete pixel values, which is particularly important for object detection
-                            outputs.
+                            coordinate systems. Spatial metadata and raster bounds are transformed into
+                            EPSG:4326, ensuring that all subsequent geographic coordinates are expressed
+                            in a consistent latitude–longitude reference system.
                         </p>
 
                         <div class="formula-box">
@@ -116,68 +114,80 @@
                 <div class="methodology-step">
                     <div class="step-header">
                         <span class="step-number">Step 2</span>
-                        <h3>Bounding Box Centroid Computation and Normalization</h3>
+                        <h3>Normalized Object Center Computation</h3>
                     </div>
 
                     <div class="step-content">
+
                         <p>
-                            Object detection models produce bounding boxes defined in image space using
-                            pixel coordinates. Each bounding box is represented by its minimum and
-                            maximum extents along the horizontal and vertical axes:
-                            <em>x<sub>min</sub>, y<sub>min</sub></em> and
-                            <em>x<sub>max</sub>, y<sub>max</sub></em>.
+                            Starting from InferenceVision v1.3, object centers are obtained directly
+                            from the detection model output. Modern YOLO architectures return
+                            bounding boxes in center format, eliminating the need for manual centroid
+                            calculation from corner coordinates.
                         </p>
 
                         <p>
-                            To obtain a single representative point for each detected object, the centroid
-                            of the bounding box is calculated. This centroid provides a stable spatial
-                            reference that minimizes sensitivity to object shape and detection variance.
-                        </p>
-
-                        <p>
-                            The centroid of a bounding box is computed as:
+                            Each detection is represented as:
                         </p>
 
                         <div class="formula-box">
                             \[
-                            (x_{\text{center}}, y_{\text{center}}) =
-                            \left(
-                            \frac{x_{\min} + x_{\max}}{2},
-                            \frac{y_{\min} + y_{\max}}{2}
-                            \right)
-                            \]
-                        </div>
-
-                        <p>
-                            Since raster dimensions may vary across datasets, centroid coordinates are
-                            normalized relative to the total image width (<em>W</em>) and height (<em>H</em>).
-                            This normalization ensures scale invariance and enables consistent mapping
-                            between image space and geographic space.
-                        </p>
-
-                        <div class="formula-box">
-                            \[
-                            N_x = \frac{x_{\text{center}}}{W}
-                            \]
-
-                            \[
-                            N_y = \frac{y_{\text{center}}}{H}
+                            (x_c, y_c, w, h)
+                            =
+                            \texttt{box.xywh}
                             \]
                         </div>
 
                         <div class="info-box">
                             <p><strong>Where:</strong></p>
                             <ul>
-                                <li>
-                                    $N_x, N_y$:
-                                    Normalized centroid coordinates
-                                </li>
-                                <li>
-                                    $W, H$:
-                                    Raster image width and height (in pixels)
-                                </li>
+                                <li>$x_c$: x-coordinate of the bounding box center</li>
+                                <li>$y_c$: y-coordinate of the bounding box center</li>
+                                <li>$w$: bounding box width</li>
+                                <li>$h$: bounding box height</li>
                             </ul>
                         </div>
+
+                        <p>
+                            The center coordinates are normalized relative to the image dimensions.
+                            This normalization enables a direct mapping between image space and
+                            geographic space regardless of image resolution.
+                        </p>
+
+                        <div class="formula-box">
+                            \[
+                            N_x = \frac{x_c}{W}
+                            \]
+
+                            \[
+                            N_y = \frac{y_c}{H}
+                            \]
+                        </div>
+
+                        <div class="info-box">
+                            <p><strong>Where:</strong></p>
+                            <ul>
+                                <li>$N_x$: normalized horizontal coordinate</li>
+                                <li>$N_y$: normalized vertical coordinate</li>
+                                <li>$W$: image width (pixels)</li>
+                                <li>$H$: image height (pixels)</li>
+                            </ul>
+                        </div>
+
+                        <p>
+                            The normalized coordinates are interpreted as:
+                        </p>
+
+                        <div class="formula-box">
+                            \[
+                            N_x \rightarrow \text{Longitude}
+                            \]
+
+                            \[
+                            N_y \rightarrow \text{Latitude}
+                            \]
+                        </div>
+
                     </div>
                 </div>
 
@@ -188,36 +198,37 @@
                     </div>
 
                     <div class="step-content">
+
                         <p>
-                            In the final stage, normalized centroid coordinates are mapped to real-world
-                            geographic coordinates using the spatial extent of the raster. This mapping
-                            establishes a linear relationship between normalized image space and the
-                            geographic coordinate system.
+                            In the final stage, normalized object center coordinates are mapped
+                            to real-world geographic coordinates using the spatial extent of the raster.
+                            This mapping establishes a linear relationship between image coordinates
+                            and geographic coordinates within the transformed WGS 84 reference system.
                         </p>
 
                         <p>
                             Using the top-left and bottom-right corner coordinates of the raster’s
-                            geographic bounding polygon, latitude and longitude values for each detected
-                            object are computed as follows:
+                            geographic bounding polygon, longitude and latitude values for each detected
+                            object are computed through linear interpolation.
                         </p>
 
                         <div class="formula-box">
                             \[
-                            \text{lat}
+                            lon
                             =
-                            lat_{TL}
+                            lon_{TL}
                             +
-                            \left( lat_{BR} - lat_{TL} \right)
+                            \left( lon_{BR} - lon_{TL} \right)
                             \cdot
                             N_x
                             \]
 
                             \[
-                            \text{lon}
+                            lat
                             =
-                            lon_{TL}
+                            lat_{TL}
                             +
-                            \left( lon_{BR} - lon_{TL} \right)
+                            \left( lat_{BR} - lat_{TL} \right)
                             \cdot
                             N_y
                             \]
@@ -227,26 +238,27 @@
                             <p><strong>Where:</strong></p>
                             <ul>
                                 <li>
-                                    $\text{lat}, \text{lon}$:
+                                    $\text{lon}, \text{lat}$:
                                     Geographic coordinates of the detected object
                                 </li>
                                 <li>
                                     $N_x, N_y$:
-                                    Normalized centroid coordinates
+                                    Normalized object center coordinates
                                 </li>
                                 <li>
-                                    $lat_{TL}, lon_{TL}, lat_{BR}, lon_{BR}$:
+                                    $lon_{TL}, lat_{TL}, lon_{BR}, lat_{BR}$:
                                     Geographic coordinates of the raster corner points
                                 </li>
                             </ul>
-
                         </div>
 
                         <p>
-                            This approach ensures spatial consistency and allows detected objects to be
-                            accurately referenced within GIS systems, spatial databases, and interactive
-                            mapping platforms.
+                            The interpolation assumes a linear relationship between image-space
+                            coordinates and geographic coordinates over the image extent. This
+                            approach enables detected objects to be accurately referenced within
+                            GIS systems, spatial databases, and interactive mapping platforms.
                         </p>
+
                     </div>
                 </div>
 
@@ -321,4 +333,3 @@
 </body>
 
 </html>
-
